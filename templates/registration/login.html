@@ -1,0 +1,52 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<div class="TODO">
+  <p>Implement Password Reset</p>
+</div>
+
+{% if next %}
+{% if user.is_authenticated %}
+<p>Your account doesn't have access to this page. To proceed,
+  please login with an account that has access.</p>
+  {% else %}
+  <p>Please login to see this page.</p>
+  {% endif %}
+  {% else  %}
+  <div class="login-grid">
+    <div class="login-left-margin"></div>
+    <div class="login-middle">
+      {% if form.errors %}
+      <h4 class="error">Your username and password didn't match. Please try again.</h4>
+      {% endif %}
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <div>
+          <span>{{ form.username.label_tag }}</span>
+          <span>{{ form.username }}</span>
+        </div>
+        <div>
+          <span>{{ form.password.label_tag }}</span>
+          <span>{{ form.password }}</span>
+        </div>
+        <input class="submit_button" type="submit" value="Login" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+      <br>
+      {# Assumes you setup the password_reset view in your URLconf #}
+      <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+      <br />
+      <h3 class="TODO">Logout is for debugging</h3>
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Logout" />
+      </form>
+    </div>
+
+    {% endif %}
+
+    <div class="login-right-margin"></div>
+  </div>
+  {% endblock %}

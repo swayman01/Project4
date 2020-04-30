@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Community Share</title>
+{% endblock %}
+
+{% block content %}
+<h1>Let's Get Started</h1>
+<div class="TODO">
+  <p>User {{user.username}} is authenticated: {{user.is_authenticated}}</p>
+</div>
+
+<div class="login-grid">
+  <div class="login-left-margin"></div>
+  <div class="login-middle">
+    <h3>Current Members</h3>
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <input class="submit_button" type="submit" value="Login" />
+    </form>
+    <br />
+    <h3>Want to Join?</h3>
+    <form class="login-middle" method="post" action="{% url 'sign_up' %}">
+      {% csrf_token %}
+      <input class="submit_button" type="submit" value="Register" />
+    </form>
+  </div>
+  <div class="login-right-margin"></div>
+</div>
+
+{% load staticfiles %}
+<script src="{% static 'share/p4index.js' %}"></script>
+{% endblock %}

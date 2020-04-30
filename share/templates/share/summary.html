@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>My Summary</title>
+{% endblock %}
+
+{% block content %}
+<h1>My Needs and Provisions</h1>
+<h2>This is a stub</h2>
+
+<div class="TODO">
+    <p>User {{user.username}} is authenticated: {{user.is_authenticated}}</p>
+    <p>Make this screen login_required</p>
+    <p>if user is not approved screen should print their email and ask if it is correct</p>
+</div>
+
+
+<div class="login-grid login-middle">
+  <!-- <h3 class="login-middle">Current Members</h3> -->
+  <form class="login-middle" method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <input type="submit" value="Logout" />
+  </form>
+</div>
+
+
+{% endblock %}

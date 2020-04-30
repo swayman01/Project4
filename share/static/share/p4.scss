@@ -1,0 +1,247 @@
+/* Alt - Ctrl - C to watch scss for changes */
+/* or cmd-shift P and Atom Sass Compile */
+
+/* #8D8741 #659DBD #DAAD86 #BC986A #FBEEC1 */
+/* https://www.jordanprindledesigns.com/blog/color-palettes #10 */
+/* Storm: #222c3c | Jean: #999ea7 | Honey: #d8b26e | Nude: #b69b7d | Cream: #e2e0d5 */
+
+/* Global */
+
+/* Use If statements for different themes */
+// https://sass-lang.com/documentation/at-rules/control/if
+
+/* reference: https://visme.co/blog/website-color-schemes #3 Nature */
+$white: fdf5e8;
+$margin_color:  #DAAD86;
+$form_color: #659DBD;
+$background_color: #BC986A;
+$error_color: pink;
+$heading_fonts_color: #FBEEC1;
+$body_fonts_color: #FBEEC1;
+$button_color: #8D8741;
+/* end reference: https://visme.co/blog/website-color-schemes #3 */
+
+/* reference: https://visme.co/blog/website-color-schemes #4 Cool and Frest */
+$white: #fdf5e8;
+$margin_color: #5CDB95;
+$form_color: #379683;
+$background_color: #5CDB95;
+$error_color: red;
+$heading_fonts_color: #05386B;
+$body_fonts_color: #EDF5E1;
+$button_color: #8EE4AF;
+/* end reference: https://visme.co/blog/website-color-schemes #3 */
+
+$TODO_COLOR: pink;
+
+h1,h2,h3,h4 {
+  text-align: center;
+  font-family: Helvetica Neue, sans-serif;
+  color: $heading_fonts_color;
+}
+
+html, body {
+  font-family: Garamond, serif;
+  color: $body_fonts_color;
+  background-color: $background_color;
+}
+
+.TODO {
+  color: $TODO_COLOR;
+}
+
+.error {
+  color: $error_color;
+}
+
+.submit_button {
+  background-color: #8D8741;
+  color: $body_fonts_color;
+}
+
+
+/* Login Page */
+.login-grid {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+}
+// Use to pretify web page
+.login-left-margin {
+  grid-column: 1;
+  background-color: $margin_color;
+}
+
+.login-right-margin {
+  grid-column: 3;
+  background-color: $margin_color;
+}
+
+.login-middle {
+  grid-column: 2;
+  text-align: center;
+  align-content: center;
+  background-color: $form_color;
+  color: $body_fonts_color;
+}
+
+.grid-login-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+/* Sign Up Page */
+#info_a {
+  border: 1p;
+  background-color: $form_color;
+}
+
+#form_errors_hidden {
+  display: none,
+}
+
+#form_errors_displayed {
+  color: $error_color,
+}
+
+// .sign_up-grid {
+//   display: grid;
+//   grid-template-columns: 1fr 2fr 6fr 1fr;
+//}  //Add spacing between two columns
+
+// commented out 4/29/20 - revector for summary
+// .sign_up-left-margin {
+//   grid-column: 1;
+//   background-color: $margin_color;
+// }
+//
+// .sign_up-right-margin {
+//   grid-column: 4;
+//   background-color: $margin_color;
+// }
+//
+// .sign_up-left {
+//   grid-column: 2;
+//   text-align: left;
+//   align-content: center;
+//   //background-color: red;
+// }
+//
+// .sign_up-right {
+//   grid-column: 3;
+//   text-align: left;
+//   align-content: center;
+//   //background-color: blue;
+// } //Span two columns for Bio
+//
+// .sign_up-middle {
+//   grid-column: 2 / 3;
+//   text-align: center;
+//   align-content: center;
+//   background-color: green;
+// }
+
+.borders_top_sides {
+  border-top-style: dotted;
+  border-left-style: dotted;
+  border-right-style: dotted;
+  border-width: thin;
+  margin-bottom: 0;
+  // text-align: center; commented out 4/30/20
+  // font-weight: bold;
+}
+
+.borders_bottom_sides {
+  border-bottom-style: dotted;
+  border-left-style: dotted;
+  border-right-style: dotted;
+  border-width: thin;
+}
+
+.borders_sides {
+  border-left-style: dotted;
+  border-right-style: dotted;
+  border-width: thin;
+  margin-bottom: 0;
+}
+
+.bold_centered {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+// .password_helptext_ul commented out 4/30/20
+// {
+//   border-style: dotted;
+//   border-width: thin;
+// }
+//
+// .password_helptext_li
+// {
+//   font_size: x-large;
+// }
+
+
+
+/* Begin CSS Grid Practice */
+/* Delete when done */
+// .grid-container {
+//   display: grid;
+//   //grid-template-columns: repeat(3, 1fr);
+//   grid-template-columns: auto auto auto auto auto auto;
+//   grid-gap: 10px;
+//   grid-gap: 10px;
+//   grid-auto-rows: minmax(100px, auto);
+//   justify-content: normal;
+//   align-content: center;
+//
+//   grid-template-columns: auto auto auto auto auto auto;
+//   grid-gap: 10px;
+//   background-color: #2196F3;
+//   padding: 10px;
+// }
+//
+// .grid-container > div {
+//  background-color: rgba(255, 255, 255, 0.8);
+//  text-align: center;
+//  padding: 20px 0;
+//  font-size: 30px;
+// }
+//
+// .one {
+//   grid-column: 1 / 3;
+//   grid-row: 1;
+// }
+// .one_one{
+//   grid-column: 4;
+//   grid-row: 1;
+// }
+// .two {
+//   grid-column: 2 / 4;
+//   grid-row: 1 / 3;
+// }
+// .three {
+//   grid-column: 1;
+//   grid-row: 2 / 5;
+// }
+// .four {
+//   grid-column: 3;
+//   grid-row: 3;
+// }
+// .five {
+//   grid-column: 2;
+//   grid-row: 4;
+// }
+// .four_five{
+//   grid-column: 5;
+//   grid-row: 4;
+// }
+// .six {
+//   grid-column: 3;
+//   grid-row: 4;
+// }
+// .item8 {
+//   grid-area: 1 / 2 / 5 / 6;
+// }
+/*End CSS Grid Practice*/

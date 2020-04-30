@@ -1,0 +1,96 @@
+/* Alt - Ctrl - C to watch scss for changes */
+/* or cmd-shift P and Atom Sass Compile */
+/* #8D8741 #659DBD #DAAD86 #BC986A #FBEEC1 */
+/* https://www.jordanprindledesigns.com/blog/color-palettes #10 */
+/* Storm: #222c3c | Jean: #999ea7 | Honey: #d8b26e | Nude: #b69b7d | Cream: #e2e0d5 */
+/* Global */
+/* Use If statements for different themes */
+/* reference: https://visme.co/blog/website-color-schemes #3 Nature */
+/* end reference: https://visme.co/blog/website-color-schemes #3 */
+/* reference: https://visme.co/blog/website-color-schemes #4 Cool and Frest */
+/* end reference: https://visme.co/blog/website-color-schemes #3 */
+h1, h2, h3, h4 {
+  text-align: center;
+  font-family: Helvetica Neue, sans-serif;
+  color: #05386B; }
+
+html, body {
+  font-family: Garamond, serif;
+  color: #EDF5E1;
+  background-color: #5CDB95; }
+
+.TODO {
+  color: pink; }
+
+.error {
+  color: red; }
+
+.submit_button {
+  background-color: #8D8741;
+  color: #EDF5E1; }
+
+/* Login Page */
+.login-grid {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr; }
+
+.login-left-margin {
+  grid-column: 1;
+  background-color: #5CDB95; }
+
+.login-right-margin {
+  grid-column: 3;
+  background-color: #5CDB95; }
+
+.login-middle {
+  grid-column: 2;
+  text-align: center;
+  align-content: center;
+  background-color: #379683;
+  color: #EDF5E1; }
+
+.grid-login-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px; }
+
+/* Sign Up Page */
+#info_a {
+  border: 1p;
+  background-color: #379683; }
+
+#form_errors_hidden {
+  display: none; }
+
+#form_errors_displayed {
+  color: red; }
+
+.borders_top_sides {
+  border-top-style: dotted;
+  border-left-style: dotted;
+  border-right-style: dotted;
+  border-width: thin;
+  margin-bottom: 0; }
+
+.borders_bottom_sides {
+  border-bottom-style: dotted;
+  border-left-style: dotted;
+  border-right-style: dotted;
+  border-width: thin; }
+
+.borders_sides {
+  border-left-style: dotted;
+  border-right-style: dotted;
+  border-width: thin;
+  margin-bottom: 0; }
+
+.bold_centered {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 0; }
+
+/* Begin CSS Grid Practice */
+/* Delete when done */
+/*End CSS Grid Practice*/
+
+/*# sourceMappingURL=p4.css.map */

@@ -1,0 +1,59 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Sign Up</title>
+{% endblock %}
+
+<!-- Someday List:
+validate zipcode OR city and state
+look up zipcode and fill in city and state -->
+
+<!-- Django code for login: https://github.com/django/django/blob/master/django/contrib/admin/models.py -->
+<!-- Django reference for auth: https://docs.djangoproject.com/en/3.0/ref/contrib/auth/ -->
+<!-- More reference material: https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#django.contrib.auth.models.BaseUserManager -->
+<!-- https://docs.djangoproject.com/en/3.0/topics/auth/default/#topics-auth-creating-users -->
+<!-- SOMEDAY Pass data from views.py per https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#std:templatefilter-json_script -->
+
+{% block content %}
+<h1>Sign Up for Community Share</h1>
+<h2>Your Info</h2>
+<div class="TODO">
+  <p>User {{user.username}} is authenticated: {{user.is_authenticated}}</p>
+</div>
+
+<p id="form_errors_hidden">{{form_errorsJSONSTR}}</p>
+<h4 id="form_errors_displayed"></h4>
+<div id="info_a" class="login-grid">
+  <div class="login-left-margin"></div>
+  <div class="login-middle">
+    <form id="info_a_form" class="sign_up-right" method="post">
+      {% csrf_token %}
+      {{ sign_up_a_form.as_p}}
+      {{ sign_up_b_form.as_p}}
+      <button id="request_enrollment" class="submit_button" type="submit" style="float:bottom;">Request Enrollment</button>
+    </form>
+    <!-- <form id="info_b_form" class="sign_up-right" method="post">
+      {# csrf_token #}
+      {{ sign_up_b_form.as_p}} -->
+
+    </div>
+    <div class="login-right-margin"></div>
+</div>
+
+<br>
+<br>
+
+
+<div class="login-grid login-middle">
+  <form class="login-middle" method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <input type="submit" value="Logout for Debug TODO: Change to Submit" />
+  </form>
+</div>
+
+{% load staticfiles %}
+<script src="{% static 'share/common.js' %}"></script>
+<!-- <script type="text/javascript" >var form_errorsJSONSTR = {{form_errorsJSONSTR}}</script> -->
+<script src="{% static 'share/p4sign_up.js' %}"></script>
+
+{% endblock %}
