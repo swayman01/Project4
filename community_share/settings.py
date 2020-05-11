@@ -117,7 +117,7 @@ USE_TZ = True
 # Redirect to summary.html after login (Default redirects to /accounts/profile/)
 # LOGIN_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/share/summary'
-LOGOUT_REDIRECT_URL = 'index'
+#LOGOUT_REDIRECT_URL = 'index'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

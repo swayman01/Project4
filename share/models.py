@@ -10,15 +10,13 @@ class Member_profile(models.Model):
     """
         Model contains supplemental data that is not part of the
         django.contrib.auth.models User Model
-
-
-Phone/Text # (optional)
-City/State/Zip
-Member Bio
         """
-
+    name = models.CharField(max_length=50, help_text='')
+    # title = models.CharField(max_length=50, blank=True) #commented out 5/6/20
     is_approved = models.BooleanField(default=False,
     help_text='True means Administrator has allowed member to join')
+    is_moderator = models.BooleanField(default=False,
+    help_text='Moderators can view and edit all Provisions and Needs')
     phone_number = models.CharField(max_length=15, blank=True,
     help_text='Optional, used for making contact outside of app')
     city = models.CharField(max_length=50, blank=True)
@@ -33,9 +31,87 @@ Member Bio
         # Returns the url to access a particular pizza instance.
         return reverse('memberprofile_detail', args=[str(self.id)])
 
-    # def __str__(self): #Commented out 4/25/20
-    #     # String for representing the Model object.
-    #     return self.name
+    def __str__(self): #Commented out 4/25/20, back in 5/6/20
+         # String for representing the Model object.
+         return self.name
+
+# Make type global since it is used in two models
+TYPE = (
+('Service', 'service'),
+('Perishable Food', 'perishable_food'),
+('Non Perishable Food', 'non_perishable_food'),
+('Product', 'product'),
+('Financial', 'financial'),
+('Other', 'other'),
+)
+
+
+class Provision(models.Model):
+    """Model contains what the members can provide"""
+    STATUS = (
+    ('Available', 'available'),
+    ('Pending', 'pending'),
+    ('Provided', 'provided'),
+    )
+    # Note - not allow people to reserve ahead of time
+    FREQUENCY = (
+    ('One Time', 'one_time'),
+    ('Daily', 'daily'),
+    ('Weekly', 'weekly'),
+    ('Monthly', 'monthly'),
+    ('Intermittent', 'intermittent'),
+    ('NA', 'Not Applicable'),
+    )
+    name = models.CharField(max_length=50, help_text='')
+    member_id = models.PositiveSmallIntegerField(blank=False,
+    help_text='Providing member',default=0)
+    type = models.CharField(max_length=25, choices=TYPE)
+    frequency = models.CharField(max_length=25, choices=FREQUENCY, default='one_time',
+    help_text='Used for items that repeat (i.e. at service that can be provided \
+    to one person every week')
+    expiration_date = models.DateTimeField(auto_now=False, auto_now_add=False, \
+    blank=True, null=True, help_text=('useful for food and deadlines'))
+    status = models.CharField(max_length=25, choices=STATUS, default='one_time',
+    help_text='Used for items that repeat (i.e. at service that can be provided \
+    to one person every week')
+    provided_to = models.PositiveSmallIntegerField(blank=True, null=True,
+    help_text="Member who received the service")
+
+    # class Meta:
+    #     ordering = ['type', 'expiration_date'] # descending date in views.py?
+        # there is another approach: https://github.com/carltongibson/django-filter/issues/274
+
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance."""
+        return reverse('provision_detail', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
+
+
+class Need(models.Model):
+    """Model contains what the members need"""
+    name = models.CharField(max_length=50, help_text='')
+    member_id = models.PositiveSmallIntegerField(blank=False,
+    help_text='Member with need',default=0)
+    type = models.CharField(max_length=25, choices=TYPE)
+    due_date = models.DateTimeField(auto_now=False, auto_now_add=False, \
+    blank=True, null=True, help_text='when is the item needed?')
+    background_info = models.TextField(max_length=1000, blank=True, \
+    help_text="Any additional information that might help")
+    provided_from = models.PositiveSmallIntegerField(blank=True, null=True,
+    help_text="Member who provided the service")
+
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance."""
+        return reverse('provision_detail', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
 
 # built-in user model:
 #  username
@@ -74,12 +150,4 @@ Member Bio
 #         The extra_fields keyword arguments are passed through to the
 #         User’s __init__ method to allow setting arbitrary fields on a custom user model.
 #         See Creating users for example usage. https://docs.djangoproject.com/en/3.0/topics/auth/default/#topics-auth-creating-users
-#
-#
-# member_profile:
-#   user_id
-#   phone_number (optional)
-#   location:
-#    city, state, zip code
-#  approved (by administrator)
 #

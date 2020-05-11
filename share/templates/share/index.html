@@ -16,13 +16,13 @@
     <h3>Current Members</h3>
     <form method="post" action="{% url 'login' %}">
       {% csrf_token %}
-      <input class="submit_button" type="submit" value="Login" />
+      <input class="button-submit" type="submit" value="Login" />
     </form>
     <br />
     <h3>Want to Join?</h3>
-    <form class="login-middle" method="post" action="{% url 'sign_up' %}">
+    <form class="login-middle" method="post" action="{% url 'sign_up' %}?next={%url 'summary'%}">
       {% csrf_token %}
-      <input class="submit_button" type="submit" value="Register" />
+      <input class="button-submit" type="submit" value="Register" />
     </form>
   </div>
   <div class="login-right-margin"></div>

@@ -1,7 +1,7 @@
+console.log("common.js");
 function jsonSTR_to_array(jsonSTR){
   //This function takes a string that looks like an array of json objects and
   //converts it to a list
-
   //Strip leading and closing brackets ([])
   jsonSTR = jsonSTR.slice(1,-1);
   jsonLIST = jsonSTR.split("},");
@@ -13,3 +13,35 @@ function jsonSTR_to_array(jsonSTR){
   }
   return jsonLIST;
 }
+
+function form_errors(id_hidden,id_displayed,page){
+  form_errorsJSON = "";
+  console.log(id_hidden,id_displayed,page);
+  console.log(document.getElementById(id_hidden).innerHTML);
+  if(document.getElementById(id_hidden).innerHTML!="") {
+      form_errorsJSON = JSON.parse(document.getElementById(id_hidden).innerHTML);
+    }
+    errors = "";
+    console.log(page,sessionStorage.getItem(page));
+    console.log(form_errorsJSON)
+    if(((sessionStorage.getItem(page))=="true")&&(form_errorsJSON!="")) {
+      for (const [key, value] of Object.entries(form_errorsJSON)) {
+        for (i = 0; i < value.length; i++) {
+          errors = errors.concat(value[i]);
+          errors = errors.concat('<br>');
+        }
+      }
+      // if(page=="visited_login_page") {
+      //   //For the timebeing we need an exception for login page
+      //   console.log('true',page, form_errorsJSON,errors);
+      //   form_errorsSTR = JSON.parse(form_errorsJSON);
+      //   form_errorsARRAY = jsonSTR_to_array(form_errorsSTR);
+      //   console.log(form_errorsARRAY)
+      // }
+      // else {console.log('false',page, form_errorsJSON);}
+    }
+  else {
+      sessionStorage.setItem(page,true);
+    }
+    document.getElementById(id_displayed).innerHTML = errors;
+  }

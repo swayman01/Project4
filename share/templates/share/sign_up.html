@@ -30,7 +30,7 @@ look up zipcode and fill in city and state -->
       {% csrf_token %}
       {{ sign_up_a_form.as_p}}
       {{ sign_up_b_form.as_p}}
-      <button id="request_enrollment" class="submit_button" type="submit" style="float:bottom;">Request Enrollment</button>
+      <button id="request_enrollment" class="button-submit" type="submit" style="float:bottom;">Request Enrollment</button>
     </form>
     <!-- <form id="info_b_form" class="sign_up-right" method="post">
       {# csrf_token #}
@@ -45,9 +45,9 @@ look up zipcode and fill in city and state -->
 
 
 <div class="login-grid login-middle">
-  <form class="login-middle" method="post" action="{% url 'logout' %}">
+  <form class="" method="post" action="{% url 'logout' %}">
     {% csrf_token %}
-    <input type="submit" value="Logout for Debug TODO: Change to Submit" />
+    <input class="button-submit" type="submit" value="Logout for Debug TODO: Change to Submit" />
   </form>
 </div>
 

@@ -1,8 +1,8 @@
-console.log("p4sign_up.js")
+console.log("p4sign_up.js");
 document.addEventListener('DOMContentLoaded', () => {
   console.log("document loaded");
   clear_errorlist();
-  form_errors("form_errors_hidden","form_errors_displayed")
+  form_errors("form_errors_hidden","form_errors_displayed","visited_sign_up_page")
   remove_confirm_password_helptext();
   email_phone_borders();
   password_help_text_format();
@@ -14,24 +14,6 @@ console.log("clear_errorlist")
   document.querySelectorAll('.errorlist').forEach(function(a){
     a.remove();
   })}
-
-function form_errors(id_hidden,id_displayed) {
-    form_errorsJSON = JSON.parse(document.getElementById(id_hidden).innerHTML);
-    errors = "";
-
-    if(sessionStorage.getItem("visited_sign_up_page")=="true") {
-      for (const [key, value] of Object.entries(form_errorsJSON)) {
-        for (i = 0; i < value.length; i++) {
-          errors = errors.concat(value[i]);
-          errors = errors.concat('<br>');
-        }
-      }
-    }
-    else {
-      sessionStorage.setItem("visited_sign_up_page",true);
-    }
-    document.getElementById(id_displayed).innerHTML = errors;
-  }
 
  function remove_confirm_password_helptext() {
    x=document.getElementById('id_password2')
@@ -52,11 +34,13 @@ function email_phone_borders() {
       plist[i].setAttribute("class","borders_bottom_sides")
       i_phone = i;
     }
+    x=document.getElementById("id_phone_number")
+    x.setAttribute("type","tel")
   }
   let or_node = document.createElement("p");
   let or_node_text = document.createTextNode("Enter Email or Phone Number or both:");
   or_node.setAttribute("class","borders_top_sides");
-  or_node.setAttribute("class","borders_top_sides bold_centered")
+  or_node.setAttribute("class","borders_top_sides bold-centered")
   or_node.appendChild(or_node_text);
   plist[i_email].insertAdjacentElement('beforebegin', or_node);
   //set input type for phone number
@@ -87,7 +71,7 @@ function move_bio_label() {
   }
   let bio_node = document.createElement("p");
   let bio_node_text = document.createTextNode("Tell us about yourself:");
-  bio_node.setAttribute("class","bold_centered");
+  bio_node.setAttribute("class","bold-centered");
   bio_node.appendChild(bio_node_text);
   labellist[i_label].insertAdjacentElement('beforebegin', bio_node);
 }

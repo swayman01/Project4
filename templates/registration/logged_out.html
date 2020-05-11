@@ -1,7 +1,13 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<p>Logged out!</p>
-<p class="TODO">Clear sessionStorage with javascript</p>
-<a href="{% url 'login'%}">Click here to login again.</a>
+<h2>Logged out!</h2>
+<h4 class="error">{{error_message}}</h4>
+<div class="bold-centered">
+  <a class="button-submit" style="color:white" href="{% url 'index'%}">Click here to start over.</a>
+</div>
+
+{% load staticfiles %}
+<script src="{% static 'share/common.js' %}"></script>
+<script src="{% static 'share/p4logout.js' %}"></script>
 {% endblock %}
