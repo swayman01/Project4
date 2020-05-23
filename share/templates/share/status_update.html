@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Status Update</title>
+{% endblock %}
+
+{% block content %}
+<h1>Need Not Needed</h1>
+
+<div class="TODO">
+
+</div>
+<h2 class="error">Need for {{need}} {{error}}<h2>
+
+<div class="button-centered">
+  <a class="button-submit" style="color:white" href="{% url 'summary'%}">Return to Summary</a>
+<form  method="post" action="{% url 'logout' %}">
+  {% csrf_token %}
+  <input type="submit" class="button-submit" style="color:white"  value="Logout" />
+</form>
+</div>
+{% endblock %}

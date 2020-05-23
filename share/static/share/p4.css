@@ -11,10 +11,13 @@
 /* end reference: https://visme.co/blog/website-color-schemes #3 */
 body, html .body {
   font-family: Garamond, serif;
+  font-size: 1rem;
   color: #EDF5E1;
   background-color: #5CDB95; }
 
-input, button, textarea, select {
+input, button, textarea, select, text {
+  font-family: Garamond, serif;
+  font-size: 1rem;
   border-style: solid;
   border-radius: .25rem;
   border-width: 1px;
@@ -32,9 +35,6 @@ h1, h2, h3, h4 {
   text-align: center;
   font-family: Helvetica Neue, sans-serif;
   color: #05386B; }
-
-a {
-  color: #EDF5E1; }
 
 ul {
   list-style-type: none; }
@@ -80,6 +80,20 @@ ul {
   line-height: 1.5;
   border-style: solid;
   border-radius: 4rem; }
+
+a {
+  text-decoration: none;
+  font-family: Garamond, serif;
+  color: #EDF5E1;
+  font-size: 1rem;
+  font-weight: normal; }
+
+a:visited {
+  font-family: Garamond, serif;
+  color: #EDF5E1;
+  font-size: 1rem;
+  font-weight: normal;
+  text-decoration: none; }
 
 /* Login Page */
 .login-grid {
@@ -173,45 +187,163 @@ ul {
   margin-bottom: 0;
   margin-top: .75rem; }
 
+.button-centered {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: .75rem; }
+
 /* Summary Page */
 .provisions-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 2px;
+  grid-gap: 0;
   border-left: 1px;
   border-right: 1px;
   box-sizing: border-box;
   border-collapse: collapse; }
 
-.provisions-grid-header {
-  grid-column: 1 / 6;
-  margin-top: 0;
-  margin-bottom: .75rem; }
+.provision3-grid-3columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0; }
+
+.provisions-grid-4columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0; }
+
+.provisions-grid-5columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0; }
+
+.provisions-grid-6columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 0; }
 
 .provision-name {
-  grid-column: 1; }
+  grid-column: 1;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-name:nth-child(1) {
+    border-top: none; }
 
 .provision-frequency {
-  grid-column: 2; }
+  grid-column: 2;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-frequency:nth-child(2) {
+    border-top: none; }
 
 .provision-status {
-  grid-column: 3; }
+  grid-column: 3;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-status:nth-child(3) {
+    border-top: none; }
 
-.provision-expiriation_date {
-  grid-column: 4; }
+.provision-expiration_date {
+  grid-column: 4;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-expiration_date:nth-child(4) {
+    border-top: none; }
+
+.provision-column1 {
+  grid-column: 1;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-column1:nth-child(1) {
+    border-top: none; }
+
+.provision-column2 {
+  grid-column: 2;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-column2:nth-child(2) {
+    border-top: none; }
+
+.provision-column3 {
+  grid-column: 3;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-column3:nth-child(3) {
+    border-top: none; }
+
+.provision-column4 {
+  grid-column: 4;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-column4:nth-child(4) {
+    border-top: none; }
+
+.provision-column5 {
+  grid-column: 5;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-column5:nth-child(5) {
+    border-top: none; }
+
+.provision-column6 {
+  grid-column: 6;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-column6:nth-child(6) {
+    border-top: none; }
 
 .provision-debug {
-  grid-column: 5; }
+  grid-column: 5;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-debug:nth-child(5) {
+    border-top: none; }
 
 .provision-edit-button {
-  grid-column: 6; }
+  grid-column: 5;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-edit-button:nth-child(5) {
+    border-top: none; }
+
+.provision-match-button {
+  grid-column: 6;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-match-button:nth-child(6) {
+    border-top: none; }
+
+.provision-needs-col3 {
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-needs-col3:nth-child(3) {
+    border-top: none; }
+
+.provision-needs-col5 {
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .provision-needs-col5:nth-child(5) {
+    border-top: none; }
 
 .needs-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  grid-gap: 2px;
-  border-left: 1px;
-  border-right: 1px;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-gap: 0;
   box-sizing: border-box;
   border-collapse: collapse; }
 
@@ -221,19 +353,59 @@ ul {
   margin-bottom: .75rem; }
 
 .need-name {
-  grid-column: 1; }
+  grid-column: 1;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .need-name:nth-child(1) {
+    border-top: none; }
 
 .need-type {
-  grid-column: 2; }
+  grid-column: 2;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .need-type:nth-child(2) {
+    border-top: none; }
 
 .need-due_date {
-  grid-column: 3; }
+  grid-column: 3;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .need-due_date:nth-child(3) {
+    border-top: none; }
 
-.need-debug {
-  grid-column: 4; }
+/* Match Needs to Provision*/
+.needs-provision-frequency {
+  grid-column: 1;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .needs-provision-frequency:nth-child(1) {
+    border-top: none; }
 
-.need-edit-button {
-  grid-column: 5; }
+.needs-provision-status {
+  grid-column: 2;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .needs-provision-status:nth-child(2) {
+    border-top: none; }
+
+.needs-provision-expiration_date {
+  grid-column: 3;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem; }
+  .needs-provision-expiration_date:nth-child(3) {
+    border-top: none; }
+
+.one-provision {
+  border: 2px solid;
+  border-color: #EDF5E1;
+  padding: .375rem;
+  margin-bottom: .75rem; }
 
 /* Begin CSS Grid Practice */
 /* Delete when done */

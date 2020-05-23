@@ -1,4 +1,3 @@
-console.log("p4login.js")
 document.addEventListener('DOMContentLoaded', () => {
   console.log("document loaded");
   console.log(sessionStorage.getItem("visited_login_page"));

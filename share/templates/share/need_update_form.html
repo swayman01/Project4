@@ -6,6 +6,7 @@
 {% block content %}
 <h1>Update Need</h1>
 <div class="TODO">
+  <p>Format due date</p>
   <p>Format after formatting Provision</p>
 </div>
 <p>Context:</p>
@@ -17,7 +18,7 @@
     <form action="" method="post">
       <table>
         {% csrf_token %}
-        {{form.as_table}} {{need.id}}
+        {{form.as_table}}
       </table>
       <input class="btn btn-primary" style="color:white" type="submit" value="Submit">
     </form>

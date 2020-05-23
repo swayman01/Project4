@@ -26,54 +26,54 @@ class Member_profile(models.Model):
     member_bio = models.TextField(max_length=1000, blank=False)
     member_id = models.PositiveSmallIntegerField(blank=False)
 
-    # TODO: Decide if we need this
-    def get_absolute_url(self):
-        # Returns the url to access a particular pizza instance.
-        return reverse('memberprofile_detail', args=[str(self.id)])
+    # TODO: Decide if we need this -trial comment out 5/12/20
+    # def get_absolute_url(self):
+    #     # Returns the url to access a particular pizza instance.
+    #     return reverse('memberprofile_detail', args=[str(self.id)])
 
-    def __str__(self): #Commented out 4/25/20, back in 5/6/20
+    def __str__(self):
          # String for representing the Model object.
          return self.name
 
 # Make type global since it is used in two models
 TYPE = (
-('Service', 'service'),
-('Perishable Food', 'perishable_food'),
-('Non Perishable Food', 'non_perishable_food'),
-('Product', 'product'),
-('Financial', 'financial'),
-('Other', 'other'),
+('Service', 'Service'),
+('Perishable Food', 'Perishable Food'),
+('Non Perishable Food', 'Non Perishable Food'),
+('Product', 'Product'),
+('Financial', 'Financial'),
+('Other', 'Other'),
 )
 
 
 class Provision(models.Model):
     """Model contains what the members can provide"""
     STATUS = (
-    ('Available', 'available'),
-    ('Pending', 'pending'),
-    ('Provided', 'provided'),
+    ('Available', 'Available'),
+    ('Pending', 'Pending'),
+    ('Provided', 'Provided'),
+    ('Expired', 'Expired'),
+    ('Retracted', 'Retracted'),
     )
     # Note - not allow people to reserve ahead of time
     FREQUENCY = (
-    ('One Time', 'one_time'),
-    ('Daily', 'daily'),
-    ('Weekly', 'weekly'),
-    ('Monthly', 'monthly'),
-    ('Intermittent', 'intermittent'),
-    ('NA', 'Not Applicable'),
+    ('One Time', 'One_time'),
+    ('Daily', 'Daily'),
+    ('Weekly', 'Weekly'),
+    ('Monthly', 'Monthly'),
+    ('Intermittent', 'Intermittent'),
+    ('Not Applicable', 'Not Applicable'),
     )
     name = models.CharField(max_length=50, help_text='')
     member_id = models.PositiveSmallIntegerField(blank=False,
     help_text='Providing member',default=0)
     type = models.CharField(max_length=25, choices=TYPE)
-    frequency = models.CharField(max_length=25, choices=FREQUENCY, default='one_time',
+    frequency = models.CharField(max_length=25, choices=FREQUENCY, default='One_time',
     help_text='Used for items that repeat (i.e. at service that can be provided \
     to one person every week')
     expiration_date = models.DateTimeField(auto_now=False, auto_now_add=False, \
     blank=True, null=True, help_text=('useful for food and deadlines'))
-    status = models.CharField(max_length=25, choices=STATUS, default='one_time',
-    help_text='Used for items that repeat (i.e. at service that can be provided \
-    to one person every week')
+    status = models.CharField(max_length=25, choices=STATUS, default='Available')
     provided_to = models.PositiveSmallIntegerField(blank=True, null=True,
     help_text="Member who received the service")
 
@@ -93,6 +93,13 @@ class Provision(models.Model):
 
 class Need(models.Model):
     """Model contains what the members need"""
+    STATUS = (
+    ('Open', 'Open'),
+    ('Pending', 'Pending'),
+    ('Provided', 'Provided'),
+    ('Expired', 'Expired'),
+    ('Retracted', 'Retracted'),
+    )
     name = models.CharField(max_length=50, help_text='')
     member_id = models.PositiveSmallIntegerField(blank=False,
     help_text='Member with need',default=0)
@@ -101,6 +108,7 @@ class Need(models.Model):
     blank=True, null=True, help_text='when is the item needed?')
     background_info = models.TextField(max_length=1000, blank=True, \
     help_text="Any additional information that might help")
+    status = models.CharField(max_length=25, choices=STATUS, default='Open')
     provided_from = models.PositiveSmallIntegerField(blank=True, null=True,
     help_text="Member who provided the service")
 

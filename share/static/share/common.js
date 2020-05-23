@@ -31,14 +31,7 @@ function form_errors(id_hidden,id_displayed,page){
           errors = errors.concat('<br>');
         }
       }
-      // if(page=="visited_login_page") {
-      //   //For the timebeing we need an exception for login page
-      //   console.log('true',page, form_errorsJSON,errors);
-      //   form_errorsSTR = JSON.parse(form_errorsJSON);
-      //   form_errorsARRAY = jsonSTR_to_array(form_errorsSTR);
-      //   console.log(form_errorsARRAY)
-      // }
-      // else {console.log('false',page, form_errorsJSON);}
+
     }
   else {
       sessionStorage.setItem(page,true);

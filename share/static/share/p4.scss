@@ -23,6 +23,8 @@
 
 /* reference: https://visme.co/blog/website-color-schemes #4 Cool and Fresh */
 $white: #fdf5e8;
+$font_family_headings: Helvetica Neue, sans-serif;
+$font_family_body: Garamond, serif;
 $margin_color: #5CDB95;
 $form_color: #379683;
 $background_color: #5CDB95;
@@ -35,19 +37,15 @@ $button_color: #8D8741;
 $TODO_COLOR: FireBrick;
 
 body, html .body {
-  font-family: Garamond, serif;
+  font-family: $font_family_body;
+  font-size: 1rem;
   color: $body_fonts_color;
   background-color: $background_color;
 }
 
-// input, select, textarea { //Commented out 5/11/20
-//   font-family: inherit;
-//   font-size: inherit;
-//   color: $body_fonts_color;
-//   background-color: $button_color;
-// }
-
-input, button, textarea, select {
+input, button, textarea, select, text {
+  font-family: $font_family_body;
+  font-size: 1rem;
   border-style: solid;
   border-radius: .25rem;
   border-width: 1px;
@@ -62,14 +60,18 @@ input, button, textarea, select {
   padding: .375rem .75rem;
 }
 
+// select, textarea { //commented out 5/13/20
+//   background-color: $button_color !important;
+// }
+//
+// input {
+//   background-color: $button_color !important;
+// }
+
 h1,h2,h3,h4 {
   text-align: center;
-  font-family: Helvetica Neue, sans-serif;
+  font-family: $font_family_headings;
   color: $heading_fonts_color;
-}
-
-a {
-  color: $body_fonts_color;
 }
 
 ul {
@@ -112,7 +114,6 @@ ul {
   padding: .375rem .75rem;
   font-size: 1rem;
   line-height: 1.5;
-
   border-radius: .25rem;
 }
 
@@ -132,6 +133,28 @@ ul {
   border-radius: 4rem;
 }
 
+// .add-margin-top { //Doesn't work 5/12/20
+//     margin-top: 2rem;
+//     border-style: solid;
+//     border-spacing: 2rem;
+// }
+
+a {
+  text-decoration: none;
+  font-family: $font_family_body;
+  color: $body_fonts_color;
+  font-size: 1rem;
+  font-weight: normal;
+
+}
+
+a:visited {
+  font-family: $font_family_body;
+  color: $body_fonts_color;
+  font-size: 1rem;
+  font-weight: normal;
+  text-decoration: none;
+}
 
 /* Login Page */
 .login-grid {
@@ -213,13 +236,6 @@ ul {
   background-color: $form_color;
   color: $body_fonts_color;
 }
-//
-// .sign_up-middle {
-//   grid-column: 2 / 3;
-//   text-align: center;
-//   align-content: center;
-//   background-color: green;
-// }
 
 .borders_top_sides {
   border-top-style: dotted;
@@ -250,54 +266,219 @@ ul {
   margin-top: .75rem;
 }
 
+.button-centered {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: .75rem;
+}
+
 /* Summary Page */
 .provisions-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 2px;
+    grid-gap: 0;
     border-left: 1px;
     border-right: 1px;
     box-sizing: border-box;
     border-collapse: collapse;
 }
 
-.provisions-grid-header {
-  grid-column: 1 / 6;
-  margin-top: 0;
-  margin-bottom: .75rem;
+// .provisions-grid-header { //Commented out 5/14/20
+//   grid-column: 1 / 6;
+//   margin-top: 0;
+//   margin-bottom: .75rem;
+//   font-weight: bold;
+// }
+.provision3-grid-3columns {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    grid-gap: 0;
+}
+
+.provisions-grid-4columns {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    grid-gap: 0;
+}
+
+.provisions-grid-5columns {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0;
+}
+
+.provisions-grid-6columns {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0;
 }
 
 .provision-name {
   grid-column: 1;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(1) {
+     border-top: none;
+   }
 }
 
 .provision-frequency {
   grid-column: 2;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(2) {
+     border-top: none;
+   }
 }
 
 .provision-status {
   grid-column: 3;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(3) {
+     border-top: none;
+   }
 }
 
-.provision-expiriation_date {
+.provision-expiration_date {
   grid-column: 4;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(4) {
+     border-top: none;
+   }
+}
+
+.provision-column1 {
+  grid-column: 1;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(1) {
+     border-top: none;
+   }
+}
+
+.provision-column2 {
+  grid-column: 2;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(2) {
+     border-top: none;
+   }
+}
+
+.provision-column3 {
+  grid-column: 3;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(3) {
+     border-top: none;
+   }
+}
+
+.provision-column4 {
+  grid-column: 4;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(4) {
+     border-top: none;
+   }
+}
+
+.provision-column5 {
+  grid-column: 5;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(5) {
+     border-top: none;
+   }
+}
+
+.provision-column6 {
+  grid-column: 6;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(6) {
+     border-top: none;
+   }
 }
 
 .provision-debug {
   grid-column: 5;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(5) {
+     border-top: none;
+   }
 }
 
 .provision-edit-button {
-  grid-column:6;
+  grid-column:5;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(5) {
+     border-top: none;
+   }
 }
 
+.provision-match-button {
+  grid-column:6;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(6) {
+     border-top: none;
+   }
+}
+
+.provision-needs-col3 {
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(3) {
+    border-top: none;
+  }
+}
+
+.provision-needs-col5 {
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(5) {
+    border-top: none;
+  }
+}
+
+// .provision-column4 { Duplicate Delete 5/23/20
+//   grid-column: 4;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(4) {
+//      border-top: none;
+//    }
+// }
+
 // fields = ['name', 'type', 'due_date','background_info']
+//TODO: Delete if not needed
 .needs-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    grid-gap: 2px;
-    border-left: 1px;
-    border-right: 1px;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap: 0;
+    // border-left: 1px;
+    // border-right: 1px;
     box-sizing: border-box;
     border-collapse: collapse;
 }
@@ -310,22 +491,105 @@ ul {
 
 .need-name {
   grid-column: 1;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(1) {
+     border-top: none;
+   }
 }
 
 .need-type {
   grid-column: 2;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(2) {
+     border-top: none;
+   }
 }
 
 .need-due_date {
   grid-column: 3;
+  border-top: 1px solid;
+    border-collapse: collapse;
+    padding-top: .75rem;
+    &:nth-child(3) {
+       border-top: none;
+     }
 }
 
-.need-debug {
-  grid-column: 4;
+// .need-debug { commented out before 5/19/20
+//   grid-column: 4;
+// }
+
+// .need-edit-button { commented out 5/20/20
+//   grid-column: 4;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(4) {
+//      border-top: none;
+//    }
+// }
+
+// .need-contact-button { commented out 5/20/20
+//   grid-column:5;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(5) {
+//      border-top: none;
+//    }
+// }
+
+/* Match Needs to Provision*/
+// reference: https://medium.com/@robleto/how-to-set-internal-border-lines-on-a-css-grid-layout-f2f1eeaafb61
+
+
+.needs-provision-frequency {
+  grid-column: 1;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(1) {
+     border-top: none;
+   }
 }
 
-.need-edit-button {
-  grid-column:5;
+.needs-provision-status {
+  grid-column: 2;
+  border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(2) {
+     border-top: none;
+   }
+}
+
+.needs-provision-expiration_date {
+  grid-column: 3;border-top: 1px solid;
+  border-collapse: collapse;
+  padding-top: .75rem;
+  &:nth-child(3) {
+     border-top: none;
+   }
+}
+
+// .needs-provision-edit-button { commented out 5/20/20
+//   grid-column: 4;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   &:nth-child(4) {
+//      border-top: none;
+//    }
+// }
+
+.one-provision {
+  border: 2px solid;
+  border-color: $body_fonts_color;
+  padding: .375rem;
+  margin-bottom: .75rem;
 }
 /* Begin CSS Grid Practice */
 /* Delete when done */
