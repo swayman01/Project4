@@ -11,6 +11,7 @@
   <p>User: {{contact}},{{contact.member_id}}</p>
   <p><{{user}}</p>
   <p>provision:{{provision.status}}</p>
+<h2>Add a box in contact information to make bio more readable</h2>
 </div>
 
 <div class="one-provision">
@@ -20,18 +21,17 @@
   <div class="login-left-margin"></div>
    <div class="login-middle">
      <div class="provisions-grid-5columns">
-       <span class="provision-name"><strong>Type</strong></span>
-       <span class="provision-frequency"><strong>Frequency</strong></span>
-       <span class="provision-status"><strong>Status</strong></span>
-       <span class="provision-expiration_date"><strong>Expiration Date</strong></span>
-       <span class="provision-need-col5"></span>
+       <span class="provision-column1"><strong>Type</strong></span>
+       <span class="provision-column2"><strong>Frequency</strong></span>
+       <span class="provision-column3"><strong>Status</strong></span>
+       <span class="provision-column4"><strong>Expiration Date</strong></span>
+       <span class="provision-column5"></span>
 
-       <span class="provision-name">{{provision.type}}</span>
-       <span class="provision-frequency">{{provision.frequency}}</span>
-       <span class="provision-status">{{provision.status}}</span>
-       <span class="provision-expiration_date">{{provision.expiration_date}}</span>
-       <!-- <span class="provision-debug">{{provision.id}} {{provision.member_id}}</span> -->
-       <span class="provision-needs-col5"><a href="/provision/{{provision.id}}/update"
+       <span class="provision-column1">{{provision.type}}</span>
+       <span class="provision-column2">{{provision.frequency}}</span>
+       <span class="provision-column3">{{provision.status}}</span>
+       <span class="provision-column4">{{provision.expiration_date}}</span>
+       <span class="provision-column5"><a href="{% url 'update_provision_form' %}{{provision.id}}"
          class="button-submit" style="color:white">Edit Item</a>
        </span>
       </div>
@@ -47,13 +47,13 @@
 <div class="login-left-margin"></div>
   <div class="login-middle">
     <div class="provisions-grid-3columns">
-      <span class="provision-name"><strong>Type</strong></span>
-      <span class="provision-frequency"><strong>Status</strong></span>
-      <span class="provision-status"><strong>Due Date</strong></span>
+      <span class="provision-column1"><strong>Type</strong></span>
+      <span class="provision-column2"><strong>Status</strong></span>
+      <span class="provision-column3"><strong>Due Date</strong></span>
 
-      <span class="provision-name">{{need.type}}</span>
-      <span class="provision-frequency">{{need.status}}</span>
-      <span class="provision-status">{{need.expiration_date}}</span>
+      <span class="provision-column1">{{need.type}}</span>
+      <span class="provision-column2">{{need.status}}</span>
+      <span class="provision-column3">{{need.expiration_date}}</span>
     </div>
     <div>{{need.background_info}}</div>
   </div>
@@ -67,49 +67,50 @@
     <div class="login-left-margin"></div>
     <div class="login-middle">
       <div class="provisions-grid-4columns">
-        <span class="provision-name"><strong>Email</strong></span>
-        <span class="provision-frequency"><strong>Text/Phone Number</strong></span>
-        <span class="provision-status"><strong>City</strong></span>
-        <span class="provision-expiration_date"><strong>State</strong></span>
+        <span class="provision-column1"><strong>Email</strong></span>
+        <span class="provision-column2"><strong>Text/Phone Number</strong></span>
+        <span class="provision-column3"><strong>City</strong></span>
+        <span class="provision-column4"><strong>State</strong></span>
 
-        <span class="provision-name">{{contact.email}}</span>
-        <span class="provision-frequency">{{contact.phone_number}}</span>
-        <span class="provision-status">{{contact.city}}</span>
-        <span class="provision-expiration_date">{{contact.state}}</span>
-        <!-- <span class="provision-debug">{{provision.id}} {{provision.member_id}}</span> -->
+        <span class="provision-column1">{{contact.email}}</span>
+        <span class="provision-column2">{{contact.phone_number}}</span>
+        <span class="provision-column3">{{contact.city}}</span>
+        <span class="provision-column4">{{contact.state}}</span>
       </div>
-      <div>{{contact.member_bio}}</div>
+      <br><br>
+      <h4>Contact Bio:</h4>
+      <text class="">{{contact.member_bio}}</p></text>
     </div>
     <div class="login-right-margin"></div>
-  </div>
+   </div>
 </div>
 
-<div>
-  <div class="TODO">
+<div class="TODO">
   <p class="TODO">href: "{% url 'status_update'%}1/{{provision.id}}/3/{{contact.member_id}}"</p>
   <p class="TODO">{{need}}</p>
   <p>{{need.id}}</p>
-  </div>
-  <div class="button-centered">
+</div>
+
+<div class="button-centered">
     <a class="button-submit" style="color:white" href="{% url 'status_update'%}1/{{provision.id}}/2/{{contact.member_id}}">
       Click Here When You Have Contacted a Potential Receiver For This Need</a>
-  </div>
-  <div class="button-centered">
+</div>
+<div class="button-centered">
     <a class="button-submit" style="color:white" href="{% url 'status_update'%}1/{{provision.id}}/1/{{contact.member_id}}">
       Click Here If This is Not What the Person Wanted</a>
-  </div>
-  <div class="button-centered">
+</div>
+<div class="button-centered">
     <a class="button-submit" style="color:white" href="{% url 'status_update'%}1/{{provision.id}}/3/{{contact.member_id}}/">
       Click Here When You Have Provided This Item</a>
-  </div>
-  <div class="button-centered">
+</div>
+<div class="button-centered">
     <a class="button-submit" style="color:white" href="{% url 'status_update'%}1/{{provision.id}}/5/{{contact.member_id}}">
       Click If You Can No Longer Provide This Item</a>
-  </div>
 </div>
- <div class="button-centered">
+
+<div class="button-centered">
    <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
- </div>
+</div>
   <div class="bold-centered">
   <form  method="post" action="{% url 'logout' %}">
     {% csrf_token %}

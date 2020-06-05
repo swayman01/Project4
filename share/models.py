@@ -26,10 +26,6 @@ class Member_profile(models.Model):
     member_bio = models.TextField(max_length=1000, blank=False)
     member_id = models.PositiveSmallIntegerField(blank=False)
 
-    # TODO: Decide if we need this -trial comment out 5/12/20
-    # def get_absolute_url(self):
-    #     # Returns the url to access a particular pizza instance.
-    #     return reverse('memberprofile_detail', args=[str(self.id)])
 
     def __str__(self):
          # String for representing the Model object.
@@ -55,7 +51,7 @@ class Provision(models.Model):
     ('Expired', 'Expired'),
     ('Retracted', 'Retracted'),
     )
-    # Note - not allow people to reserve ahead of time
+    # Note - do not allow people to reserve ahead of time
     FREQUENCY = (
     ('One Time', 'One_time'),
     ('Daily', 'Daily'),
@@ -111,6 +107,29 @@ class Need(models.Model):
     status = models.CharField(max_length=25, choices=STATUS, default='Open')
     provided_from = models.PositiveSmallIntegerField(blank=True, null=True,
     help_text="Member who provided the service")
+
+
+    def get_absolute_url(self):
+        """Returns the url to access a particular instance."""
+        return reverse('provision_detail', args=[str(self.id)])
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.name
+
+class Action_item(models.Model):
+    """Model contains what the members can provide"""
+    STATUS = (
+    ('Open', 'Open'),
+    ('Closed', 'Closed'),
+    ('Rejected', 'Rejected'),
+    ('OBEd', 'OBEd'),
+    )
+
+    name = models.CharField(max_length=50, help_text='')
+    owner = models.CharField(max_length=50, help_text='')
+    status = models.CharField(max_length=25, choices=STATUS, default='Open')
+    description = models.TextField(max_length=1000, blank=False)
 
 
     def get_absolute_url(self):

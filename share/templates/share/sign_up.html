@@ -20,9 +20,8 @@ look up zipcode and fill in city and state -->
 <div class="TODO">
   <p>User {{user.username}} is authenticated: {{user.is_authenticated}}</p>
 </div>
-
-<p id="form_errors_hidden">{{form_errorsJSONSTR}}</p>
-<h4 id="form_errors_displayed"></h4>
+<p id="form_errors_hidden" style="display:none">{{form_errorsJSONSTR}}</p>
+<h4 id="form_errors_displayed" class="error"></h4>
 <div id="info_a" class="login-grid">
   <div class="login-left-margin"></div>
   <div class="login-middle">
@@ -44,16 +43,15 @@ look up zipcode and fill in city and state -->
 <br>
 
 
-<div class="login-grid login-middle">
-  <form class="" method="post" action="{% url 'logout' %}">
+<div class="bold-centered">
+  <form class="" method="post" action="{% url 'index' %}">
     {% csrf_token %}
-    <input class="button-submit" type="submit" value="Logout for Debug TODO: Change to Submit" />
+    <input class="button-submit" type="submit" value="Cancel" />
   </form>
 </div>
 
 {% load staticfiles %}
 <script src="{% static 'share/common.js' %}"></script>
-<!-- <script type="text/javascript" >var form_errorsJSONSTR = {{form_errorsJSONSTR}}</script> -->
 <script src="{% static 'share/p4sign_up.js' %}"></script>
 
 {% endblock %}

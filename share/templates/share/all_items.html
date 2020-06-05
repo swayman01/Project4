@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>All Items</title>
+{% endblock %}
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<div class="TODO">
+
+</div>
+<div id="inputs">
+  <p id=header style="display:none">{{header}}</p>
+  <p id="items" style="display:none">{{items}}</p>
+</div>
+<div class="login-grid">
+  <div class="login-left-margin"></div>
+  <div class="login-middle">
+    <div id="all_items_header_grid">
+    </div>
+    <div id="all_items_grid">
+    </div>
+  </div>
+  <div class="login-right-margin"></div>
+</div>
+<br>
+
+<div class="button-centered">
+  <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
+</div>
+<div class="bold-centered">
+  <form  method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <input type="submit" class="button-submit" style="color:white"  value="Logout" />
+  </form>
+  <div class="login-right-margin"></div>
+</div>
+{% load staticfiles %}
+<script src="{% static 'share/common.js' %}"></script>
+<script id="header2" type="application/json">{{header}}</script>
+<script id="header1" type="text/javascript">var header1 = "{{header}};"</script>
+<script src="{% static 'share/p4all_items.js' %}"></script>
+{% endblock %}

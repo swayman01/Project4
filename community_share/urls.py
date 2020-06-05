@@ -25,8 +25,9 @@ urlpatterns = [
     path('', include('share.urls')),
     path('admin/', admin.site.urls),
     #Add Django site authentication urls (for login, logout, password management)
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('registation/', include('django.contrib.auth.urls')),
     # Add as needed from Projedt3
     # # see https://dev.to/jonesoncorners/series-login-logout-authentication-in-django-part-i-4gf4
     #path('', TemplateView.as_view(template_name ='home.html'), name = 'home'),
 ]
+# print("33 community share urls", urlpatterns)

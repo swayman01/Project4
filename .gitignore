@@ -19,3 +19,7 @@ admin/static/favicon.ico
 favicon.ico
 share/templates/share/COPYcreate_provision_form.html
 share/templates/share/DELETEcreate_provision.html
+share/COPYforms2.py
+share/COPYviews2.py
+share/VALIDATE_EXPERIMENTSformscopy.py
+share/VALIDATE_EXPERIMENTSviews.py

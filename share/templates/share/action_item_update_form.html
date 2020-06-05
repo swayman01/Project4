@@ -1,11 +1,12 @@
 {% extends "base_generic.html" %}
-<!-- SOMEDAY: Override !important in input field -->
+
 {% block title %}
-<title>Create Provision</title>
+<title>Action items</title>
 {% endblock %}
 {% block content %}
-<h1>New Provision</h1>
+<h1>Update Action Item</h1>
 <div class="TODO">
+  <p>Action_item Id:{{action_item.id}}</p>
 </div>
 <br>
 <div class="login-grid">
@@ -14,7 +15,7 @@
     <form action="" method="post">
       <table>
         {% csrf_token %}
-        {{form.as_table}} {{provision.id}}
+        {{form.as_table}}
       </table>
       <input class="btn btn-primary" style="color:white" type="submit" value="Submit">
     </form>
@@ -22,10 +23,9 @@
   <div class="login-right-margin"></div>
 </div>
 <br>
-<div class="bold-centered">
+<div class="button-centered">
   <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
 </div>
-  
 {% load staticfiles %}
-<script src="{% static 'share/p4provision_form.js' %}"></script>
+
 {% endblock %}

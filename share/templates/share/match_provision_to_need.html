@@ -15,17 +15,17 @@
 <div class="login-grid">
   <div class="login-left-margin"></div>
   <div class="login-middle">
-    <h3>{{need.name}}:{{need.member_id}}:{{need.id}}</h3>
+    <h3>{{need.name}}</h3>
     <div class="provisions-grid-4columns">
-      <span class="needs-provision-frequency"><strong>Frequency</strong></span>
-      <span class="needs-provision-status"><strong>Status</strong></span>
-      <span class="needs-provision-expiration_date"><strong>Due Date</strong></span>
+      <span class="provision-column1"><strong>Frequency</strong></span>
+      <span class="provision-column2"><strong>Status</strong></span>
+      <span class="provision-column3"><strong>Due Date</strong></span>
       <span class="provision-column4"></span>
 
-      <span class="needs-provision-frequency">{{need.frequency}}</span>
-      <span class="needs-provision-status">{{need.status}}</span>
-      <span class="needs-provision-expiration_date">{{need.due_date}}</span>
-      <span class="provision-column4"><a href="/need/{{need.id}}/update"
+      <span class="provision-column1">{{need.frequency}}</span>
+      <span class="provision-column2">{{need.status}}</span>
+      <span class="provision-column3">{{need.due_date}}</span>
+      <span class="provision-column4"><a href="{% url 'update_need_form' %}{{need.id}}"
         class="button-submit" style="color:white">Edit Item</a></span>
         <!-- spaces are important for url tab -->
       </div>
@@ -40,15 +40,15 @@
   <div class="login-middle">
     {%if provisions %}
     <div class="provisions-grid-4columns">
-      <span class="need-name"><strong>Provision</strong></span>
-      <span class="need-type"><strong>Type</strong></span>
-      <span class="need-due_date"><strong>Expiration Date</strong></span>
+      <span class="provision-column1"><strong>Provision</strong></span>
+      <span class="provision-column2"><strong>Type</strong></span>
+      <span class="provision-column3"><strong>Expiration Date</strong></span>
       <span class="provision-column4"></span>
 
       {% for provision in provisions %}
-      <span class="need-name">{{provision.name}}:member_id:{{provision.member_id}}</span>
-      <span class="need-type">{{provision.type}}</span>
-      <span class="need-due_date">{{provision.expriation_date}}</span>
+      <span class="provision-column1">{{provision.name}}</span>
+      <span class="provision-column2">{{provision.type}}</span>
+      <span class="provision-column3">{{provision.expriation_date}}</span>
       <span class="provision-column4">
         <a href="{% url 'provision_contact_info' %}{{provision.id}}/{{need.id}}"
         class="button-submit" style="color:white">Contact Info for Provision: {{provision.id}}</a>

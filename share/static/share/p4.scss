@@ -60,14 +60,6 @@ input, button, textarea, select, text {
   padding: .375rem .75rem;
 }
 
-// select, textarea { //commented out 5/13/20
-//   background-color: $button_color !important;
-// }
-//
-// input {
-//   background-color: $button_color !important;
-// }
-
 h1,h2,h3,h4 {
   text-align: center;
   font-family: $font_family_headings;
@@ -82,9 +74,6 @@ ul {
   color: $TODO_COLOR;
 }
 
-.error {
-  color: $error_color;
-}
 
 .button-submit {
   border-style: solid;
@@ -93,18 +82,14 @@ ul {
   background-color: #8D8741;
   color: $body_fonts_color;
   display: inline-block;
-  // font-weight: 400;
   text-align: center;
   vertical-align: middle;
   user-select: none;
   padding: .375rem .75rem;
   margin: .375rem;
-  // font-size: 1rem;
-  // line-height: 1.5;
 }
 
 .button-label {
-  // background-color: #8D8741;
   color: $body_fonts_color;
   display: inline-block;
   font-weight: 400;
@@ -118,25 +103,16 @@ ul {
 }
 
 
-.input-format {
-  // background-color: #8D8741;
-  color: $body_fonts_color;
-  display: inline-block;
-  // font-weight: 400;
-  text-align: left;
-  vertical-align: middle;
-  user-select: none;
-  padding: .375rem .75rem;
-  // font-size: 1rem;
-  line-height: 1.5;
-  border-style: solid;
-  border-radius: 4rem;
-}
-
-// .add-margin-top { //Doesn't work 5/12/20
-//     margin-top: 2rem;
-//     border-style: solid;
-//     border-spacing: 2rem;
+// .input-format { //Commented out 5/27/20
+//   color: $body_fonts_color;
+//   display: inline-block;
+//   text-align: left;
+//   vertical-align: middle;
+//   user-select: none;
+//   padding: .375rem .75rem;
+//   line-height: 1.5;
+//   border-style: solid;
+//   border-radius: 4rem;
 // }
 
 a {
@@ -156,7 +132,6 @@ a:visited {
   text-decoration: none;
 }
 
-/* Login Page */
 .login-grid {
   display: grid;
   grid-template-columns: 1fr 8fr 1fr;
@@ -172,7 +147,6 @@ a:visited {
   grid-column: 3;
   background-color: $margin_color;
   padding-top: 1rem;
-
 }
 
 .login-middle {
@@ -185,59 +159,71 @@ a:visited {
   padding-bottom: 1rem;
 }
 
-.grid-login-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  margin-top: 2rem;
+// .grid-login-form { //Commented out 5/27/20
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+//   grid-gap: 20px;
+//   margin-top: 2rem;
+// }
+
+.scroll_provisions {
+  height:33vh;
+  overflow:auto;
 }
 
-/* Sign Up Page */
 #info_a {
   border: 1p;
   background-color: $form_color;
 }
 
-#form_errors_hidden {
-  display: none,
-}
+// #form_errors_hidden  { doesn't work 6/3/20
+//   display: none,
+// }
 
 #form_errors_displayed {
   color: $error_color,
 }
 
-.summary-grid {
-  display: grid;
-  grid-template-columns: 1fr 4fr 4fr 1fr;
-}  //Add spacing between two columns
+// #phone_number_error #id_phone_number{
+//   color: $error_color,
+// }
 
-.summary-left-margin {
-  grid-column: 1;
-  background-color: $margin_color;
+.error .errorlist {
+  color: $error_color;
 }
 
-.summary-right-margin {
-  grid-column: 4;
-  background-color: $margin_color;
-}
+// .summary-grid { //Commented out 5/27/20
+//   display: grid;
+//   grid-template-columns: 1fr 4fr 4fr 1fr;
+// }  //Add spacing between two columns
+//
+// .summary-left-margin {
+//   grid-column: 1;
+//   background-color: $margin_color;
+// }
+//
+// .summary-right-margin {
+//   grid-column: 4;
+//   background-color: $margin_color;
+// }
+//
+// .summary-left {
+//   grid-column: 2;
+//   text-align: left;
+//   align-content: center;
+//   background-color: $form_color;
+//   color: $body_fonts_color;
+// }
+//
+// .summary-right {
+//   grid-column: 3;
+//   text-align: left;
+//   align-content: center;
+//   background-color: $form_color;
+//   color: $body_fonts_color;
+// }
 
-.summary-left {
-  grid-column: 2;
-  text-align: left;
-  align-content: center;
-  background-color: $form_color;
-  color: $body_fonts_color;
-}
-
-.summary-right {
-  grid-column: 3;
-  text-align: left;
-  align-content: center;
-  background-color: $form_color;
-  color: $body_fonts_color;
-}
-
-.borders_top_sides {
+.borders-top-sides {
   border-top-style: dotted;
   border-left-style: dotted;
   border-right-style: dotted;
@@ -245,14 +231,14 @@ a:visited {
   margin-bottom: 0;
 }
 
-.borders_bottom_sides {
+.borders-bottom-sides {
   border-bottom-style: dotted;
   border-left-style: dotted;
   border-right-style: dotted;
   border-width: thin;
 }
 
-.borders_sides {
+.borders-sides {
   border-left-style: dotted;
   border-right-style: dotted;
   border-width: thin;
@@ -272,7 +258,6 @@ a:visited {
   margin-top: .75rem;
 }
 
-/* Summary Page */
 .provisions-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
@@ -283,13 +268,7 @@ a:visited {
     border-collapse: collapse;
 }
 
-// .provisions-grid-header { //Commented out 5/14/20
-//   grid-column: 1 / 6;
-//   margin-top: 0;
-//   margin-bottom: .75rem;
-//   font-weight: bold;
-// }
-.provision3-grid-3columns {
+.provisions-grid-3columns {
     display: grid;
     grid-template-columns:  1fr 1fr 1fr;
     grid-gap: 0;
@@ -313,45 +292,51 @@ a:visited {
     grid-gap: 0;
 }
 
-.provision-name {
-  grid-column: 1;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(1) {
-     border-top: none;
-   }
+.provisions-grid-7columns {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 0;
 }
 
-.provision-frequency {
-  grid-column: 2;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(2) {
-     border-top: none;
-   }
-}
+// .provision-name { //Commented out 5/26/20 as an indication to refactor
+//   grid-column: 1;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(1) {
+//      border-top: none;
+//    }
+// }
 
-.provision-status {
-  grid-column: 3;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(3) {
-     border-top: none;
-   }
-}
+// .provision-frequency { //Commented out 5/26/20 as an indication to refactor
+//   grid-column: 2;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(2) {
+//      border-top: none;
+//    }
+// }
 
-.provision-expiration_date {
-  grid-column: 4;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(4) {
-     border-top: none;
-   }
-}
+// .provision-status { //Commented out 5/26/20 as an indication to refactor
+//   grid-column: 3;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(3) {
+//      border-top: none;
+//    }
+// }
+
+// .provision-expiration_date {
+//   grid-column: 4;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(4) {
+//      border-top: none;
+//    }
+// }
 
 .provision-column1 {
   grid-column: 1;
@@ -413,111 +398,102 @@ a:visited {
    }
 }
 
-.provision-debug {
-  grid-column: 5;
+.provision-column7 {
+  grid-column: 7;
   border-top: 1px solid;
   border-collapse: collapse;
   padding-top: .75rem;
-  &:nth-child(5) {
+  &:nth-child(7) {
      border-top: none;
    }
 }
 
-.provision-edit-button {
-  grid-column:5;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(5) {
-     border-top: none;
-   }
-}
-
-.provision-match-button {
-  grid-column:6;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(6) {
-     border-top: none;
-   }
-}
-
-.provision-needs-col3 {
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(3) {
-    border-top: none;
-  }
-}
-
-.provision-needs-col5 {
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(5) {
-    border-top: none;
-  }
-}
-
-// .provision-column4 { Duplicate Delete 5/23/20
-//   grid-column: 4;
+// .provision-edit-button {
+//   grid-column:5;
 //   border-top: 1px solid;
 //   border-collapse: collapse;
 //   padding-top: .75rem;
-//   &:nth-child(4) {
+//   &:nth-child(5) {
+//      border-top: none;
+//    }
+// }
+//
+// .provision-match-button {
+//   grid-column:6;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(6) {
 //      border-top: none;
 //    }
 // }
 
+// .provision-needs-col3 {
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(3) {
+//     border-top: none;
+//   }
+// }
+//
+// .provision-needs-col5 {
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(5) {
+//     border-top: none;
+//   }
+// }
+
+
 // fields = ['name', 'type', 'due_date','background_info']
-//TODO: Delete if not needed
-.needs-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    grid-gap: 0;
-    // border-left: 1px;
-    // border-right: 1px;
-    box-sizing: border-box;
-    border-collapse: collapse;
-}
-
-.needs-grid-header {
-  grid-column: 1 / 4;
-  margin-top: 0;
-  margin-bottom: .75rem;
-}
-
-.need-name {
-  grid-column: 1;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(1) {
-     border-top: none;
-   }
-}
-
-.need-type {
-  grid-column: 2;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(2) {
-     border-top: none;
-   }
-}
-
-.need-due_date {
-  grid-column: 3;
-  border-top: 1px solid;
-    border-collapse: collapse;
-    padding-top: .75rem;
-    &:nth-child(3) {
-       border-top: none;
-     }
-}
+//TODO: Delete if not needed //Commented out 5/26/20 as an indication to refactor
+// .needs-grid {
+//     display: grid;
+//     grid-template-columns: 2fr 1fr 1fr 1fr;
+//     grid-gap: 0;
+//     // border-left: 1px;
+//     // border-right: 1px;
+//     box-sizing: border-box;
+//     border-collapse: collapse;
+// }
+//
+// .needs-grid-header {
+//   grid-column: 1 / 4;
+//   margin-top: 0;
+//   margin-bottom: .75rem;
+// }
+//
+// .need-name {
+//   grid-column: 1;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(1) {
+//      border-top: none;
+//    }
+// }
+//
+// .need-type {
+//   grid-column: 2;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(2) {
+//      border-top: none;
+//    }
+// }
+//
+// .need-due_date {
+//   grid-column: 3;
+//   border-top: 1px solid;
+//     border-collapse: collapse;
+//     padding-top: .75rem;
+//     &:nth-child(3) {
+//        border-top: none;
+//      }
+// }
 
 // .need-debug { commented out before 5/19/20
 //   grid-column: 4;
@@ -547,34 +523,34 @@ a:visited {
 // reference: https://medium.com/@robleto/how-to-set-internal-border-lines-on-a-css-grid-layout-f2f1eeaafb61
 
 
-.needs-provision-frequency {
-  grid-column: 1;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(1) {
-     border-top: none;
-   }
-}
-
-.needs-provision-status {
-  grid-column: 2;
-  border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(2) {
-     border-top: none;
-   }
-}
-
-.needs-provision-expiration_date {
-  grid-column: 3;border-top: 1px solid;
-  border-collapse: collapse;
-  padding-top: .75rem;
-  &:nth-child(3) {
-     border-top: none;
-   }
-}
+// .needs-provision-frequency { //Commented out 5/26/20 as an indication to refactor
+//   grid-column: 1;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(1) {
+//      border-top: none;
+//    }
+// }
+//
+// .needs-provision-status {
+//   grid-column: 2;
+//   border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(2) {
+//      border-top: none;
+//    }
+// }
+//
+// .needs-provision-expiration_date {
+//   grid-column: 3;border-top: 1px solid;
+//   border-collapse: collapse;
+//   padding-top: .75rem;
+//   &:nth-child(3) {
+//      border-top: none;
+//    }
+// }
 
 // .needs-provision-edit-button { commented out 5/20/20
 //   grid-column: 4;
@@ -591,64 +567,3 @@ a:visited {
   padding: .375rem;
   margin-bottom: .75rem;
 }
-/* Begin CSS Grid Practice */
-/* Delete when done */
-// .grid-container {
-//   display: grid;
-//   //grid-template-columns: repeat(3, 1fr);
-//   grid-template-columns: auto auto auto auto auto auto;
-//   grid-gap: 10px;
-//   grid-gap: 10px;
-//   grid-auto-rows: minmax(100px, auto);
-//   justify-content: normal;
-//   align-content: center;
-//
-//   grid-template-columns: auto auto auto auto auto auto;
-//   grid-gap: 10px;
-//   background-color: #2196F3;
-//   padding: 10px;
-// }
-//
-// .grid-container > div {
-//  background-color: rgba(255, 255, 255, 0.8);
-//  text-align: center;
-//  padding: 20px 0;
-//  font-size: 30px;
-// }
-//
-// .one {
-//   grid-column: 1 / 3;
-//   grid-row: 1;
-// }
-// .one_one{
-//   grid-column: 4;
-//   grid-row: 1;
-// }
-// .two {
-//   grid-column: 2 / 4;
-//   grid-row: 1 / 3;
-// }
-// .three {
-//   grid-column: 1;
-//   grid-row: 2 / 5;
-// }
-// .four {
-//   grid-column: 3;
-//   grid-row: 3;
-// }
-// .five {
-//   grid-column: 2;
-//   grid-row: 4;
-// }
-// .four_five{
-//   grid-column: 5;
-//   grid-row: 4;
-// }
-// .six {
-//   grid-column: 3;
-//   grid-row: 4;
-// }
-// .item8 {
-//   grid-area: 1 / 2 / 5 / 6;
-// }
-/*End CSS Grid Practice*/

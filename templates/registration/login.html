@@ -3,7 +3,6 @@
 {% block content %}
 
 <div class="TODO">
-  <p>Implement Password Reset</p>
 </div>
 <h1>Login</h1>
 {% if next %}
@@ -14,12 +13,10 @@
   <h4 class="error">Please login to see this page.</h4>
   {% endif %}
   {% else  %}
-  <!-- <p id="form_errors_hidden">{{form.errors.as_json}}</p>
-  <h4 id="form_errors_displayed"></h4> -->
+
   <div class="login-grid">
     <div class="login-left-margin"></div>
     <div class="login-middle">
-
       <!-- Note that this is the only relevant user error message -->
       <h4 id="form-errors" class="error">
         {% if form.errors %}
@@ -29,7 +26,6 @@
       </h4>
       <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
-
         <div>
           <span class="button-label" >{{ form.username.label_tag }}</span>
           <span>{{ form.username }}</span>
@@ -41,17 +37,10 @@
         </div>
         <br>
         <input class="button-submit" style="color:white" type="submit" value="Login" />
-        <!-- Commented out 5/6/20<input type="hidden" name="next" value="{{ next }}" /> -->
       </form>
       <br>
       {# Assumes you setup the password_reset view in your URLconf #}
       <p class="button-submit"><a href="{% url 'password_reset' %}">Lost password?</a></p>
-      <br />
-      <h3 class="TODO">Logout is for debugging</h3>
-      <form method="post" action="{% url 'logout' %}">
-        {% csrf_token %}
-        <input class="button-submit" type="submit" value="Logout" />
-      </form>
     </div>
     {% endif %}
     <div class="login-right-margin"></div>

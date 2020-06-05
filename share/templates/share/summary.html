@@ -8,15 +8,49 @@
 <h1>My Needs and Provisions</h1>
 
 <div class="TODO">
-    <p>Add update user profile capability after login</p>
-    <p>Add check when user matches provision to his own need or vice-versa</p>
-    <p>rename provision/need grids by number of columns</p>
+  <p>Finish detailed README.md file before making video</p>
     <p>User {{user.username}}:{{user.id}} is authenticated: {{user.is_authenticated}}
     is.moderator {{my_profile.is_moderator}}</p>
-    <p>if user is not approved screen should print their email and ask if it is correct</p>
-    <p>Use { url format for hrefs}</p>
-    <p>Check for pending without provided_to or provided_from and when user does not exist</p>
+    <p>member_profile (my_profile) id: {{my_profile.id}}</p>
+    <p>see p4 scratch pad.rtf for video notes</p>
 </div>
+{% if my_profile.is_moderator %}
+<!-- <div class="one-provision"> -->
+<div class="button-centered">
+  <a class="button-submit" style="color:white" href="{% url 'all_items'%}action_items">All Action Items</a>
+</div>
+{% if action_items_open|length %}
+<h2>Open Action Items</h2>
+<div class="login-grid">
+  <div class="login-left-margin"></div>
+  <div class="login-middle">
+    <div class="provisions-grid-4columns">
+      <span class="provision-column1"><strong>Action</strong></span>
+      <span class="provision-column2"><strong>Owner</strong></span>
+      <span class="provision-column3"><strong>Status</strong></span>
+      <span class="provision-column4"><strong></strong></span>
+     {% for action_item in action_items_open %}
+      <span class="provision-column1">{{action_item.name}}</span>
+      <span class="provision-column2">{{action_item.owner}}</span>
+      <span class="provision-column3">{{action_item.status}}</span>
+      <span class="provision-column4"><a href="{% url 'update_action_item_form'%}{{action_item.id}}"
+        class="button-submit" style="color:white">Edit Action Item</a></span>
+      {% endfor %}
+      </div>
+  </div>
+  <div class="login-right-margin"></div>
+</div>
+</div>
+{% else %}
+<div class="one-provision">
+  <div class="login-left-margin"></div>
+  <div class="login-middle">
+ <h2>No Open Action Items</h2>
+  </div>
+  <div class="login-right-margin"></div>
+</div>
+{% endif %}
+{% endif %}
 
 <div class="bold-centered">
   <span class=" "><a href="{%url 'create_provision_form'%}"
@@ -24,6 +58,15 @@
   </span>
   <span class=" "><a href="{%url 'need_form'%}"
     class="button-submit" style="color:white">Add New Need</a>
+  </span>
+  <span class=" ">
+    <a class="button-submit" style="color:white" href="{% url 'all_items'%}provisions">All My Provisions</a>
+  </span>
+  <span class=" ">
+    <a class="button-submit" style="color:white" href="{% url 'all_items'%}needs">All My Needs</a>
+  </span>
+  <span class=" "><a href="{%url 'update_member_profile_form'%}{{my_profile.id}}"
+    class="button-submit" style="color:white">Edit My Profile</a>
   </span>
 </div>
 <br>
@@ -50,8 +93,6 @@
       <span class= "provision-column6"><a href="{% url 'status_update'%}1/{{provision.3}}/1/{{provision.4}}/"
         class="button-submit" style="color:white">Retract</a></span>
         <!-- spaces are important for url tab -->
-      <!-- <span class="provision-match-button"><a href="{ url 'match_need_to_provision' }/{{provision.id}}/{{user.id}}" -->
-        <!-- class="button-submit" style="color:white">Match Need</a></span> -->
         {% endfor %}
       </div>
   </div>
@@ -83,8 +124,6 @@
       <span class= "provision-column6"><a href="{% url 'status_update'%}2/{{need.3}}/1/{{need.4}}/"
         class="button-submit" style="color:white">Retract</a></span>
         <!-- spaces are important for url tab -->
-      <!-- <span class="provision-match-button"><a href="{ url 'match_need_to_provision' }/{{provision.id}}/{{user.id}}" -->
-        <!-- class="button-submit" style="color:white">Match Need</a></span> -->
         {% endfor %}
       </div>
   </div>
@@ -92,28 +131,28 @@
 </div>
 {% endif %}
 <h2>Provisions</h2>
-<div class="login-grid">
+<div class="login-grid scroll_provisions">
   <div class="login-left-margin"></div>
   <div class="login-middle">
     {%if provisions %}
-    <div class="provisions-grid">
-      <span class="provision-name"><strong>Provision</strong></span>
-      <span class="provision-frequency"><strong>Frequency</strong></span>
-      <span class="provision-status"><strong>Status</strong></span>
-      <span class="provision-expiration_date"><strong>Expiration Date</strong></span>
-      <!-- <span class="provision-debug TODO">For debugging</span> -->
-      <span class="provision-edit-button"></span>
-      <span class="provision-match-button"></span>
+    <div class="provisions-grid-7columns">
+      <span class="provision-column1"><strong>Provision</strong></span>
+      <span class="provision-column2"><strong>Type</strong></span>
+      <span class="provision-column3"><strong>Frequency</strong></span>
+      <span class="provision-column4"><strong>Status</strong></span>
+      <span class="provision-column5"><strong>Expiration Date</strong></span>
+      <span class="provision-column6"></span>
+      <span class="provision-column7"></span>
      {% for provision in provisions %}
-      <span class="provision-name">{{provision.name}}</span>
-      <span class="provision-frequency">{{provision.frequency}}</span>
-      <span class="provision-status">{{provision.status}}</span>
-      <span class="provision-expiration_date">{{provision.expiration_date}}</span>
-      <!-- <span class="provision-debug">{{provision.id}} {{provision.member_id}}</span> -->
-      <span class="provision-edit-button"><a href="/provision/{{provision.id}}/update"
+      <span class="provision-column1">{{provision.name}}</span>
+      <span class="provision-column2">{{provision.type}}</span>
+      <span class="provision-column3">{{provision.frequency}}</span>
+      <span class="provision-column4">{{provision.status}}</span>
+      <span class="provision-column5">{{provision.expiration_date}}</span>
+      <span class="provision-column6"><a href="{% url 'update_provision_form' %}{{provision.id}}"
         class="button-submit" style="color:white">Edit Item</a></span>
         <!-- spaces are important for url tab -->
-      <span class="provision-match-button"><a href="{% url 'match_need_to_provision' %}/{{provision.id}}/{{user.id}}"
+      <span class="provision-column7"><a href="{% url 'match_need_to_provision' %}/{{provision.id}}/{{user.id}}"
         class="button-submit" style="color:white">Match Need</a></span>
         {% empty %}
             <p class="bold-centered provision-status error TODO">No Provisions Yet line 1b Delete if not used</p>
@@ -121,7 +160,7 @@
       </div>
 
       {% else %}
-      <p class="bold-centered error TODO">No Open Provisions</p>
+      <p class="bold-centered error">No Open Provisions</p>
       {% endif %}
 
   </div>
@@ -129,37 +168,34 @@
 </div>
 <br>
 <h2>Needs</h2>
-<div class="login-grid">
+<div class="login-grid scroll_provisions">
   <div class="login-left-margin"></div>
   <div class="login-middle">
     {%if needs %}
-    <div class="provisions-grid">
-      <span class="provision-name"><strong>Need</strong></span>
-      <span class="provision-frequency"><strong>Type</strong></span>
-      <span class="provision-status"><strong>Status</strong></span>
-      <span class="provision-expiration_date"><strong>Due Date</strong></span>
-      <span class="provision-edit-button"></span>
+    <div class="provisions-grid-6columns">
+      <span class="provision-column1"><strong>Need</strong></span>
+      <span class="provision-column2"><strong>Type</strong></span>
+      <span class="provision-column3"><strong>Status</strong></span>
+      <span class="provision-column4"><strong>Due Date</strong></span>
+      <span class="provision-column5"></span>
+      <span class="provision-column6"></span>
       {% for need in needs %}
-        <span class="provision-name">{{need.name}}:member_id:{{need.member_id}}</span>
-        <span class="provision-frequency">{{need.type}}</span>
-        <span class="provision-status">{{need.status}}</span>
-        <span class="provision-expiration_date">{{need.due_date}}</span>
-        <span class="provision-edit-button"><a href="/need/{{need.id}}/update"
+        <span class="provision-column1">{{need.name}}</span>
+        <span class="provision-column2">{{need.type}}</span>
+        <span class="provision-column3">{{need.status}}</span>
+        <span class="provision-column4">{{need.due_date}}</span>
+        <span class="provision-column5"><a href="{% url 'update_need_form' %}{{need.id}}"
           class="button-submit" style="color:white">Edit Item</a></span>
 
-        <span class="provision-match-button"><a href="{% url 'match_provision_to_need' %}/{{need.id}}/{{user.id}}"
+        <span class="provision-column6"><a href="{% url 'match_provision_to_need' %}/{{need.id}}/{{user.id}}"
           class="button-submit" style="color:white">Match Provision</a></span>
           {% empty %}
               <p class="bold-centered need-status error TODO">No needs Yet Line 1 Delete if not Needed</p>
           {% endfor %}
         </div>
-
         {% else %}
         <p class="bold-centered error">No Open Needs</p>
         {% endif %}
-
-
-
     </div>
     <div class="login-right-margin"></div>
   </div>
