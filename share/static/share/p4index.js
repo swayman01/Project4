@@ -1,4 +1,3 @@
-console.log("p4sign_up.js")
 document.addEventListener('DOMContentLoaded', () => {
 
 });

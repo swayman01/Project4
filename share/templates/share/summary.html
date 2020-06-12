@@ -8,12 +8,9 @@
 <h1>My Needs and Provisions</h1>
 
 <div class="TODO">
-  <p>Finish detailed README.md file before making video</p>
-    <p>User {{user.username}}:{{user.id}} is authenticated: {{user.is_authenticated}}
-    is.moderator {{my_profile.is_moderator}}</p>
-    <p>member_profile (my_profile) id: {{my_profile.id}}</p>
-    <p>see p4 scratch pad.rtf for video notes</p>
+
 </div>
+<h4 class="error">{{error_message}}</h4>
 {% if my_profile.is_moderator %}
 <!-- <div class="one-provision"> -->
 <div class="button-centered">
@@ -153,7 +150,7 @@
         class="button-submit" style="color:white">Edit Item</a></span>
         <!-- spaces are important for url tab -->
       <span class="provision-column7"><a href="{% url 'match_need_to_provision' %}/{{provision.id}}/{{user.id}}"
-        class="button-submit" style="color:white">Match Need</a></span>
+        class="button-submit" style="color:white">Find a Need</a></span>
         {% empty %}
             <p class="bold-centered provision-status error TODO">No Provisions Yet line 1b Delete if not used</p>
         {% endfor %}
@@ -188,7 +185,7 @@
           class="button-submit" style="color:white">Edit Item</a></span>
 
         <span class="provision-column6"><a href="{% url 'match_provision_to_need' %}/{{need.id}}/{{user.id}}"
-          class="button-submit" style="color:white">Match Provision</a></span>
+          class="button-submit" style="color:white">Find a Provision</a></span>
           {% empty %}
               <p class="bold-centered need-status error TODO">No needs Yet Line 1 Delete if not Needed</p>
           {% endfor %}
@@ -201,7 +198,7 @@
   </div>
     <br>
   <div class="bold-centered">
-  <form  method="post" action="{% url 'logout' %}">
+  <form  method="post" action="{% url 'logged_out' %}">
     {% csrf_token %}
     <input type="submit" class="button-submit" style="color:white"  value="Logout" />
   </form>

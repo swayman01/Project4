@@ -1,12 +1,5 @@
 /* Alt - Ctrl - C to watch scss for changes */
 /* or cmd-shift P and Atom Sass Compile */
-/* #8D8741 #659DBD #DAAD86 #BC986A #FBEEC1 */
-/* https://www.jordanprindledesigns.com/blog/color-palettes #10 */
-/* Storm: #222c3c | Jean: #999ea7 | Honey: #d8b26e | Nude: #b69b7d | Cream: #e2e0d5 */
-/* Global */
-/* Use If statements for different themes */
-/* reference: https://visme.co/blog/website-color-schemes #3 Nature */
-/* end reference: https://visme.co/blog/website-color-schemes #3 */
 /* reference: https://visme.co/blog/website-color-schemes #4 Cool and Fresh */
 /* end reference: https://visme.co/blog/website-color-schemes #3 */
 body, html .body {
@@ -113,10 +106,10 @@ a:visited {
   background-color: #379683; }
 
 #form_errors_displayed {
-  color: Crimson; }
+  color: #ff697c; }
 
 .error .errorlist {
-  color: Crimson; }
+  color: #ff697c; }
 
 .borders-top-sides {
   border-top-style: dotted;
@@ -238,11 +231,21 @@ a:visited {
   .provision-column7:nth-child(7) {
     border-top: none; }
 
-/* Match Needs to Provision*/
 .one-provision {
   border: 2px solid;
   border-color: #EDF5E1;
   padding: .375rem;
   margin-bottom: .75rem; }
+
+.bio-box {
+  border-style: solid;
+  border-radius: .25rem;
+  border-width: 1px;
+  background-color: #EDF5E1;
+  color: #8D8741;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none; }
 
 /*# sourceMappingURL=p4.css.map */

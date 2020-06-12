@@ -6,11 +6,7 @@
 {% block content %}
 <h1>Update Provision</h1>
 <div class="TODO">
-  <p>Provision Id:{{provision.id}}</p>
-  <p>Remove time from expiration_date</p>
 </div>
-<p>Context:</p>
-<p>{{user_is_approved}} {{user.id}} {{user.username}}</p>
 <br>
 <div class="login-grid">
   <div class="login-left-margin"></div>
@@ -30,5 +26,6 @@
       <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
     </div>
 {% load staticfiles %}
+<script src="{% static 'share/common.js' %}"></script>
 <script src="{% static 'share/p4provision_form.js' %}"></script>
 {% endblock %}

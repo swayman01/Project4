@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("p4provision_form.js loaded");
-  remove_frequency_helptext()
+  remove_frequency_helptext();
+  format_dateJS("expiration_date");
 });
 
 function remove_frequency_helptext() {

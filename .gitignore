@@ -16,10 +16,14 @@ community_share/__pycache__/settings.cpython-37.pyc
 community_share/__pycache__/urls.cpython-37.pyc
 community_share/__pycache__/wsgi.cpython-37.pyc
 admin/static/favicon.ico
-favicon.ico
 share/templates/share/COPYcreate_provision_form.html
 share/templates/share/DELETEcreate_provision.html
 share/COPYforms2.py
 share/COPYviews2.py
 share/VALIDATE_EXPERIMENTSformscopy.py
 share/VALIDATE_EXPERIMENTSviews.py
+.Rhistory
+README copy.md
+README.html
+practicedb
+practicedb.sqlite3

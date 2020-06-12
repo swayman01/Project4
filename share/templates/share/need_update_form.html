@@ -6,12 +6,8 @@
 {% block content %}
 <h1>Update Need</h1>
 <div class="TODO">
-  <p>Format due date</p>
-  <p>Format after formatting Provision</p>
+
 </div>
-<p>Context:</p>
-<p>{{user_is_approved}} {{user.id}} {{user.username}}</p>
-<br>
 <div class="login-grid">
   <div class="login-left-margin"></div>
   <div class="login-middle">
@@ -37,5 +33,6 @@
 <!-- </div> -->
 
 {% load staticfiles %}
+<script src="{% static 'share/common.js' %}"></script>
 <script src="{% static 'share/p4need_form.js' %}"></script>
 {% endblock %}

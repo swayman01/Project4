@@ -5,14 +5,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- <link rel="shortcut icon" href="{#  'favicon.ico' #}"> Erro 5/26/20  Did you forget to register or load this tag? -->
-  <!-- added 5/7/20 per https://stackoverflow.com/questions/21938028/how-can-i-get-a-favicon-to-show-up-in-my-django-app/21938098 -->
-
-  <!-- commented out 5/6/20 -->
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
-  <!-- Add additional CSS in static file -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'share/p4.css' %}">
+  <link rel="shortcut icon" href="{% static 'share/favicon.ico' %}">
 
 </head>
 <body class="body">
@@ -25,7 +20,6 @@
   {% block content %}
 
 {% endblock %}
-
 
 </body>
 </html>

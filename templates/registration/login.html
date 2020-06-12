@@ -18,12 +18,15 @@
     <div class="login-left-margin"></div>
     <div class="login-middle">
       <!-- Note that this is the only relevant user error message -->
-      <h4 id="form-errors" class="error">
+
         {% if form.errors %}
-        Please enter a correct username and password. <br />Note that
-        both fields may be case-sensitive.
+        <h4 id="form_errors_displayed"  class="error">
+        Please enter a correct username and password <br>Note that
+        both fields are case-sensitive.
+        </h4>
+        <br>
       {% endif %}
-      </h4>
+
       <form method="post" action="{% url 'login' %}">
         {% csrf_token %}
         <div>

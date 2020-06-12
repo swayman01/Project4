@@ -12,13 +12,13 @@ look up zipcode and fill in city and state -->
 <!-- Django reference for auth: https://docs.djangoproject.com/en/3.0/ref/contrib/auth/ -->
 <!-- More reference material: https://docs.djangoproject.com/en/3.0/topics/auth/customizing/#django.contrib.auth.models.BaseUserManager -->
 <!-- https://docs.djangoproject.com/en/3.0/topics/auth/default/#topics-auth-creating-users -->
-<!-- SOMEDAY Pass data from views.py per https://docs.djangoproject.com/en/3.0/ref/templates/builtins/#std:templatefilter-json_script -->
+
 
 {% block content %}
 <h1>Sign Up for Community Share</h1>
 <h2>Your Info</h2>
 <div class="TODO">
-  <p>User {{user.username}} is authenticated: {{user.is_authenticated}}</p>
+
 </div>
 <p id="form_errors_hidden" style="display:none">{{form_errorsJSONSTR}}</p>
 <h4 id="form_errors_displayed" class="error"></h4>
@@ -31,10 +31,6 @@ look up zipcode and fill in city and state -->
       {{ sign_up_b_form.as_p}}
       <button id="request_enrollment" class="button-submit" type="submit" style="float:bottom;">Request Enrollment</button>
     </form>
-    <!-- <form id="info_b_form" class="sign_up-right" method="post">
-      {# csrf_token #}
-      {{ sign_up_b_form.as_p}} -->
-
     </div>
     <div class="login-right-margin"></div>
 </div>

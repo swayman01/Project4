@@ -1,17 +1,13 @@
-console.log("p4sign_up.js");
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("document loaded");
   clear_errorlist();
   form_errors("form_errors_hidden","form_errors_displayed","visited_sign_up_page")
   remove_confirm_password_helptext();
-  //phone_number_error("form_errors_displayed","visited_sign_up_page");
   email_phone_borders();
   password_help_text_format();
   move_bio_label();
 });
 
 function clear_errorlist() {
-console.log("clear_errorlist")
   document.querySelectorAll('.errorlist').forEach(function(a){
     a.remove();
   })}
@@ -22,34 +18,6 @@ console.log("clear_errorlist")
      x.parentNode.removeChild(x.parentNode.childNodes[4]);
    }
 }
-
-// function phone_number_error(id_displayed, page) {
-//     form_errorsJSON = "";
-//     id_hidden = "phone_number_error_hidden"
-//     console.log(document.getElementById(id_hidden).innerHTML);
-//     if(document.getElementById(id_hidden).innerHTML!="") {
-//         form_errorsJSON = JSON.parse(document.getElementById(id_hidden).innerHTML);
-//         form_errorsJSON = form_errorsJSON.message;
-//       }
-//       errors = "";
-//       console.log(page,sessionStorage.getItem(page));
-//       console.log(form_errorsJSON)
-//       if(((sessionStorage.getItem(page))=="true")&&(form_errorsJSON!="")) {
-//         errors = form_errorsJSON;
-//           }
-//     else {
-//         sessionStorage.setItem(page,true);
-//       }
-//       document.getElementById(id_displayed).innerHTML = errors;
-//     }
-//
-
-// function remove_confirm_password_helptext() {
-//   x=document.getElementById('id_phone_number')
-//   if (x.parentNode.childNodes[4].className=="helptext") {
-//     x.parentNode.removeChild(x.parentNode.childNodes[4]);
-//   }
-// }
 
 function email_phone_borders() {
   var plist = document.getElementsByTagName("P");
@@ -72,7 +40,6 @@ function email_phone_borders() {
   or_node.setAttribute("class","borders-top-sides bold-centered")
   or_node.appendChild(or_node_text);
   plist[i_email].insertAdjacentElement('beforebegin', or_node);
-  //set input type for phone number
 }
 
 function password_help_text_format() {

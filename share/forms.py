@@ -7,15 +7,11 @@ from django.contrib.auth.forms import UserCreationForm # from https://simpleisbe
 from django.views.generic.edit import UpdateView
 from django.shortcuts import render,redirect
 from share.models import Member_profile
-#from share.views import phone_number_checker
 
-# Add as needed
-# from django.core.exceptions import ValidationError
-# from django.utils.translation import ugettext_lazy as _
+
 def phone_number_checker(phone_number):
     """Simple phone number checker and formatter. Checks for 10 digits and uses
     dot format"""
-    print("forms 17: phone_number_checker",phone_number)
     tel = re.compile('[0-9]')
     x = tel.findall(str(phone_number))
     if len(x)!=10:
@@ -32,6 +28,8 @@ def phone_number_checker(phone_number):
             subscriber = subscriber + x[i]
         tel_no = area_code + exchange +subscriber
         return(True,tel_no)
+
+
 # From https://stackoverflow.com/questions/48049498/django-usercreationform-custom-fields
 class Sign_upForm(UserCreationForm):
     username = forms.CharField(label='Username')
@@ -49,17 +47,11 @@ class Member_profileForm(forms.Form):
     zip_code =   forms.CharField(label='Zip Code',required=True)
     # ref: https://docs.djangoproject.com/en/3.0/ref/forms/widgets/#built-in-widgets
     member_bio = forms.CharField(label='Tell us about yourself',widget=forms.Textarea)
-    # print("32: city:", forms.CharField.cleaned_data['city']," state:",state," zip_code:",zip_code)
-    # if phone_number != "":
-    #     phone_number = phone_number_checker(phone_number)[1]
-# reference: https://docs.djangoproject.com/en/2.2/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other
+    # reference: https://docs.djangoproject.com/en/2.2/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other
     def clean(self):
-        print("forms 57 in def clean(self)")
         cleaned_data = super().clean()
         phone_number = cleaned_data.get("phone_number")
-        print("forms 59",phone_number)
         if phone_number != "" and not phone_number_checker(phone_number)[0]:
-            print("forms 61",phone_number_checker(phone_number))
             msg = "Phone number must contain exactly 10 digits"
             self.add_error('phone_number', msg)
             raise forms.ValidationError(msg)
@@ -68,6 +60,5 @@ class Member_profileForm(forms.Form):
                 'error':Member_profileForm().errors.as_json(),
             }
         else:
-            print("forms 86:caught by phone_number_checker")
-            phone_number = phone_number_checker(phone_number)[1]
+            # phone_number = phone_number_checker(phone_number)[1]
             return self.cleaned_data

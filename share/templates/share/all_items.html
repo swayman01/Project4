@@ -30,7 +30,7 @@
   <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
 </div>
 <div class="bold-centered">
-  <form  method="post" action="{% url 'logout' %}">
+  <form  method="post" action="{% url 'logged_out' %}">
     {% csrf_token %}
     <input type="submit" class="button-submit" style="color:white"  value="Logout" />
   </form>

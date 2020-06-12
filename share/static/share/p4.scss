@@ -1,26 +1,6 @@
 /* Alt - Ctrl - C to watch scss for changes */
 /* or cmd-shift P and Atom Sass Compile */
 
-/* #8D8741 #659DBD #DAAD86 #BC986A #FBEEC1 */
-/* https://www.jordanprindledesigns.com/blog/color-palettes #10 */
-/* Storm: #222c3c | Jean: #999ea7 | Honey: #d8b26e | Nude: #b69b7d | Cream: #e2e0d5 */
-
-/* Global */
-
-/* Use If statements for different themes */
-// https://sass-lang.com/documentation/at-rules/control/if
-
-/* reference: https://visme.co/blog/website-color-schemes #3 Nature */
-// $white: fdf5e8;
-// $margin_color:  #DAAD86;
-// $form_color: #659DBD;
-// $background_color: #BC986A;
-// $error_color: pink;
-// $heading_fonts_color: #FBEEC1;
-// $body_fonts_color: #FBEEC1;
-// $button_color: #8D8741;
-/* end reference: https://visme.co/blog/website-color-schemes #3 */
-
 /* reference: https://visme.co/blog/website-color-schemes #4 Cool and Fresh */
 $white: #fdf5e8;
 $font_family_headings: Helvetica Neue, sans-serif;
@@ -28,7 +8,7 @@ $font_family_body: Garamond, serif;
 $margin_color: #5CDB95;
 $form_color: #379683;
 $background_color: #5CDB95;
-$error_color: Crimson;
+$error_color: rgb(255,105,124);
 $heading_fonts_color: #05386B;
 $body_fonts_color: #EDF5E1;
 $button_color: #8D8741;
@@ -60,6 +40,21 @@ input, button, textarea, select, text {
   padding: .375rem .75rem;
 }
 
+// #bio-box {
+//   border-style: solid;
+//   border-radius: .25rem;
+//   border-width: 1px;
+//   background-color: $button_color;
+//   color: $heading_fonts_color;
+//   display: inline-block;
+//   text-align: center;
+//   vertical-align: middle;
+//   user-select: none;
+//   padding: .375rem .75rem;
+//   margin: .375rem;
+// }
+
+
 h1,h2,h3,h4 {
   text-align: center;
   font-family: $font_family_headings;
@@ -79,7 +74,7 @@ ul {
   border-style: solid;
   border-radius: .25rem;
   border-width: 1px;
-  background-color: #8D8741;
+  background-color: $button_color;
   color: $body_fonts_color;
   display: inline-block;
   text-align: center;
@@ -101,19 +96,6 @@ ul {
   line-height: 1.5;
   border-radius: .25rem;
 }
-
-
-// .input-format { //Commented out 5/27/20
-//   color: $body_fonts_color;
-//   display: inline-block;
-//   text-align: left;
-//   vertical-align: middle;
-//   user-select: none;
-//   padding: .375rem .75rem;
-//   line-height: 1.5;
-//   border-style: solid;
-//   border-radius: 4rem;
-// }
 
 a {
   text-decoration: none;
@@ -159,13 +141,6 @@ a:visited {
   padding-bottom: 1rem;
 }
 
-// .grid-login-form { //Commented out 5/27/20
-//   display: grid;
-//   grid-template-columns: 1fr 1fr;
-//   grid-gap: 20px;
-//   margin-top: 2rem;
-// }
-
 .scroll_provisions {
   height:33vh;
   overflow:auto;
@@ -176,52 +151,13 @@ a:visited {
   background-color: $form_color;
 }
 
-// #form_errors_hidden  { doesn't work 6/3/20
-//   display: none,
-// }
-
 #form_errors_displayed {
   color: $error_color,
 }
 
-// #phone_number_error #id_phone_number{
-//   color: $error_color,
-// }
-
 .error .errorlist {
   color: $error_color;
 }
-
-// .summary-grid { //Commented out 5/27/20
-//   display: grid;
-//   grid-template-columns: 1fr 4fr 4fr 1fr;
-// }  //Add spacing between two columns
-//
-// .summary-left-margin {
-//   grid-column: 1;
-//   background-color: $margin_color;
-// }
-//
-// .summary-right-margin {
-//   grid-column: 4;
-//   background-color: $margin_color;
-// }
-//
-// .summary-left {
-//   grid-column: 2;
-//   text-align: left;
-//   align-content: center;
-//   background-color: $form_color;
-//   color: $body_fonts_color;
-// }
-//
-// .summary-right {
-//   grid-column: 3;
-//   text-align: left;
-//   align-content: center;
-//   background-color: $form_color;
-//   color: $body_fonts_color;
-// }
 
 .borders-top-sides {
   border-top-style: dotted;
@@ -298,46 +234,6 @@ a:visited {
     grid-gap: 0;
 }
 
-// .provision-name { //Commented out 5/26/20 as an indication to refactor
-//   grid-column: 1;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(1) {
-//      border-top: none;
-//    }
-// }
-
-// .provision-frequency { //Commented out 5/26/20 as an indication to refactor
-//   grid-column: 2;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(2) {
-//      border-top: none;
-//    }
-// }
-
-// .provision-status { //Commented out 5/26/20 as an indication to refactor
-//   grid-column: 3;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(3) {
-//      border-top: none;
-//    }
-// }
-
-// .provision-expiration_date {
-//   grid-column: 4;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(4) {
-//      border-top: none;
-//    }
-// }
-
 .provision-column1 {
   grid-column: 1;
   border-top: 1px solid;
@@ -408,162 +304,23 @@ a:visited {
    }
 }
 
-// .provision-edit-button {
-//   grid-column:5;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(5) {
-//      border-top: none;
-//    }
-// }
-//
-// .provision-match-button {
-//   grid-column:6;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(6) {
-//      border-top: none;
-//    }
-// }
-
-// .provision-needs-col3 {
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(3) {
-//     border-top: none;
-//   }
-// }
-//
-// .provision-needs-col5 {
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(5) {
-//     border-top: none;
-//   }
-// }
-
-
-// fields = ['name', 'type', 'due_date','background_info']
-//TODO: Delete if not needed //Commented out 5/26/20 as an indication to refactor
-// .needs-grid {
-//     display: grid;
-//     grid-template-columns: 2fr 1fr 1fr 1fr;
-//     grid-gap: 0;
-//     // border-left: 1px;
-//     // border-right: 1px;
-//     box-sizing: border-box;
-//     border-collapse: collapse;
-// }
-//
-// .needs-grid-header {
-//   grid-column: 1 / 4;
-//   margin-top: 0;
-//   margin-bottom: .75rem;
-// }
-//
-// .need-name {
-//   grid-column: 1;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(1) {
-//      border-top: none;
-//    }
-// }
-//
-// .need-type {
-//   grid-column: 2;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(2) {
-//      border-top: none;
-//    }
-// }
-//
-// .need-due_date {
-//   grid-column: 3;
-//   border-top: 1px solid;
-//     border-collapse: collapse;
-//     padding-top: .75rem;
-//     &:nth-child(3) {
-//        border-top: none;
-//      }
-// }
-
-// .need-debug { commented out before 5/19/20
-//   grid-column: 4;
-// }
-
-// .need-edit-button { commented out 5/20/20
-//   grid-column: 4;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(4) {
-//      border-top: none;
-//    }
-// }
-
-// .need-contact-button { commented out 5/20/20
-//   grid-column:5;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(5) {
-//      border-top: none;
-//    }
-// }
-
-/* Match Needs to Provision*/
-// reference: https://medium.com/@robleto/how-to-set-internal-border-lines-on-a-css-grid-layout-f2f1eeaafb61
-
-
-// .needs-provision-frequency { //Commented out 5/26/20 as an indication to refactor
-//   grid-column: 1;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(1) {
-//      border-top: none;
-//    }
-// }
-//
-// .needs-provision-status {
-//   grid-column: 2;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(2) {
-//      border-top: none;
-//    }
-// }
-//
-// .needs-provision-expiration_date {
-//   grid-column: 3;border-top: 1px solid;
-//   border-collapse: collapse;
-//   padding-top: .75rem;
-//   &:nth-child(3) {
-//      border-top: none;
-//    }
-// }
-
-// .needs-provision-edit-button { commented out 5/20/20
-//   grid-column: 4;
-//   border-top: 1px solid;
-//   border-collapse: collapse;
-//   &:nth-child(4) {
-//      border-top: none;
-//    }
-// }
-
 .one-provision {
   border: 2px solid;
   border-color: $body_fonts_color;
   padding: .375rem;
   margin-bottom: .75rem;
+}
+
+.bio-box {
+  border-style: solid;
+  border-radius: .25rem;
+  border-width: 1px;
+  background-color: $body_fonts_color;
+  color: $button_color;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  // padding: .375rem .75rem;
+  // margin: .375rem;
 }

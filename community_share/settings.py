@@ -14,7 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print("settings.py 17 BASE_DIR: ", BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -117,7 +116,7 @@ USE_TZ = True
 # Redirect to summary.html after login (Default redirects to /accounts/profile/)
 # LOGIN_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/share/summary'
-#LOGOUT_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = '/share/logged_out.html'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

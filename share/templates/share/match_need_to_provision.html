@@ -5,17 +5,51 @@
 {% endblock %}
 
 {% block content %}
-<h1>My Needs and Provisions</h1>
+<h1>Candidiate Needs and My Provision</h1>
 
 <div class="TODO">
 
 </div>
 
-<h2>Provision</h2>
+<h2>Candidate Needs</h2>
 <div class="login-grid">
   <div class="login-left-margin"></div>
   <div class="login-middle">
-    <h3>{{provision.name}}</h3>
+    {%if needs %}
+    <div class="provisions-grid-4columns">
+      <span class="provision-column1"><strong>Need</strong></span>
+      <span class="provision-column2"><strong>Type</strong></span>
+      <span class="provision-column3"><strong>Due Date</strong></span>
+      <span class="provision-column4"></span>
+
+      {% for need in needs %}
+        <span class="provision-column1">{{need.name}}</span>
+        <span class="provision-column2">{{need.type}}</span>
+        <span class="provision-column3">{{need.due_date}}</span>
+        <span class="provision-column4">
+          <a href="{% url 'need_contact_info' %}{{need.id}}/{{provision.id}}"
+          class="button-submit" style="color:white">Contact Info</a>
+        </span>
+        {% empty %}
+            <p class="bold-centered need-status error TODO">No needs Yet Line 1 Delete if not Needed</p>
+      {% endfor %}
+        </div>
+
+        {% else %}
+        <p class="bold-centered error">No Needs Yet</p>
+        {% endif %}
+
+
+
+    </div>
+    <div class="login-right-margin"></div>
+  </div>
+    <br>
+<h3>My Provision</h3>
+<div class="login-grid">
+  <div class="login-left-margin"></div>
+  <div class="login-middle">
+    <h4>{{provision.name}}</h4>
     <div class="provisions-grid-4columns">
       <span class="provision-column1"><strong>Frequency</strong></span>
       <span class="provision-column2"><strong>Status</strong></span>
@@ -34,46 +68,12 @@
 </div>
 <br>
 
-<h2>Candidate Needs</h2>
-<div class="login-grid">
-  <div class="login-left-margin"></div>
-  <div class="login-middle">
-    {%if needs %}
-    <div class="provisions-grid-4columns">
-      <!-- fields = ['name', 'type', 'due_date','background_info','provided_from'] -->
-      <span class="provision-column1"><strong>Need</strong></span>
-      <span class="provision-column2"><strong>Type</strong></span>
-      <span class="provision-column3"><strong>Due Date</strong></span>
-      <span class="provision-column4"></span>
 
-      {% for need in needs %}
-        <span class="provision-column1">{{need.name}}:member_id:{{need.member_id}}</span>
-        <span class="provision-column2">{{need.type}}</span>
-        <span class="provision-column3">{{need.due_date}}</span>
-        <span class="provision-column4">
-          <a href="{% url 'need_contact_info' %}{{need.id}}/{{provision.id}}"
-          class="button-submit" style="color:white">Contact Info for Provision: {{provision.id}}</a>
-        </span>
-        {% empty %}
-            <p class="bold-centered need-status error TODO">No needs Yet Line 1 Delete if not Needed</p>
-      {% endfor %}
-        </div>
-
-        {% else %}
-        <p class="bold-centered error">No Needs Yet</p>
-        {% endif %}
-
-
-
-    </div>
-    <div class="login-right-margin"></div>
-  </div>
-    <br>
  <div class="button-centered">
     <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
   </div>
   <div class="bold-centered">
-   <form  method="post" action="{% url 'logout' %}">
+   <form  method="post" action="{% url 'logged_out' %}">
      {% csrf_token %}
      <input type="submit" class="button-submit" style="color:white"  value="Logout" />
    </form>

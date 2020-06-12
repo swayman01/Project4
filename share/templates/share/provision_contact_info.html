@@ -4,58 +4,11 @@
 <title>Contact Info</title>
 {% endblock %}
 
+
 {% block content %}
 <h1>Contact Info</h1>
 
 <div class="TODO">
-  <p>User: {{contact}},{{contact.member_id}}</p>
-</div>
-
-<div class="one-provision">
-  <h2>My Provision</h2>
-  <h3>{{provision.name}}</h3>
- <div class="login-grid">
-  <div class="login-left-margin"></div>
-   <div class="login-middle">
-     <div class="provisions-grid-5columns">
-       <span class="provision-column1"><strong>Type</strong></span>
-       <span class="provision-column2"><strong>Frequency</strong></span>
-       <span class="provision-column3"><strong>Status</strong></span>
-       <span class="provision-column4"><strong>Expiration Date</strong></span>
-       <span class="provision-column5"></span>
-
-       <span class="provision-column1">{{provision.type}}</span>
-       <span class="provision-column2">{{provision.frequency}}</span>
-       <span class="provision-column3">{{provision.status}}</span>
-       <span class="provision-column4">{{provision.expiration_date}}</span>
-       <span class="provision-column5"><a href="/provision/{{provision.id}}/update"
-         class="button-submit" style="color:white">Edit Item</a>
-       </span>
-      </div>
-  </div>
-  <div class="login-right-margin"></div>
- </div>
-</div>
-
-<div class="one-provision">
-<h2>Need</h2>
-<h3>{{need.name}}</h3>
-<div class="login-grid">
-<div class="login-left-margin"></div>
-  <div class="login-middle">
-    <div class="provisions-grid-3columns">
-      <span class="provision-column1"><strong>Type</strong></span>
-      <span class="provision-column2"><strong>Status</strong></span>
-      <span class="provision-column3"><strong>Due Date</strong></span>
-
-      <span class="provision-column1">{{need.type}}</span>
-      <span class="provision-column2">{{need.status}}</span>
-      <span class="provision-column3">{{need.expiration_date}}</span>
-    </div>
-    <div>{{need.background_info}}</div>
-  </div>
-  <div class="login-right-margin"></div>
- </div>
 </div>
 
 <div class="one-provision">
@@ -68,21 +21,61 @@
         <span class="provision-column2"><strong>Text/Phone Number</strong></span>
         <span class="provision-column3"><strong>City</strong></span>
         <span class="provision-column4"><strong>State</strong></span>
-
-        <span class="provision-column1">{{contact.email}}</span>
+        <span class="provision-column1">{{email}}</span>
         <span class="provision-column2">{{contact.phone_number}}</span>
         <span class="provision-column3">{{contact.city}}</span>
         <span class="provision-column4">{{contact.state}}</span>
       </div>
       <br><br>
-      <h4>Contact Bio:</h4>
-      <text class="">{{contact.member_bio}}</p></text>
+      <h3>Contact Bio:</h3>
+      <span class="bio-box">{{contact.member_bio}}</span>
     </div>
-    </div>
-    <div class="login-right-margin"></div>
   </div>
+  <div class="login-right-margin"></div>
 </div>
 
+
+
+<div class>
+  <h2>Candidate Provision</h2>
+  <h3>{{provision.name}}</h3>
+ <div class="login-grid">
+  <div class="login-left-margin"></div>
+   <div class="login-middle">
+     <div class="provisions-grid-4columns">
+       <span class="provision-column1"><strong>Type</strong></span>
+       <span class="provision-column2"><strong>Frequency</strong></span>
+       <span class="provision-column3"><strong>Status</strong></span>
+       <span class="provision-column4"><strong>Expiration Date</strong></span>
+       <span class="provision-column1">{{provision.type}}</span>
+       <span class="provision-column2">{{provision.frequency}}</span>
+       <span class="provision-column3">{{provision.status}}</span>
+       <span class="provision-column4">{{provision.expiration_date}}</span>
+      </div>
+  </div>
+  <div class="login-right-margin"></div>
+ </div>
+</div>
+
+<div>
+<h3>My Need</h3>
+<h4>{{need.name}}</h4>
+<div class="login-grid">
+<div class="login-left-margin"></div>
+  <div class="login-middle">
+    <div class="provisions-grid-3columns">
+      <span class="provision-column1"><strong>Type</strong></span>
+      <span class="provision-column2"><strong>Status</strong></span>
+      <span class="provision-column3"><strong>Due Date</strong></span>
+      <span class="provision-column1">{{need.type}}</span>
+      <span class="provision-column2">{{need.status}}</span>
+      <span class="provision-column3">{{need.expiration_date}}</span>
+    </div>
+    <div>{{need.background_info}}</div>
+  </div>
+  <div class="login-right-margin"></div>
+ </div>
+</div>
 <div>
   <div class="button-centered">
     <a class="button-submit" style="color:white" href="{% url 'status_update'%}2/{{need.id}}/2/{{contact.member_id}}">
@@ -104,7 +97,7 @@
   <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
   </div>
   <div class="bold-centered">
-  <form  method="post" action="{% url 'logout' %}">
+  <form  method="post" action="{% url 'logged_out' %}">
     {% csrf_token %}
     <input type="submit" class="button-submit" style="color:white"  value="Logout" />
   </form>

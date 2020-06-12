@@ -1,11 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("p4member_profile.js loaded");
   old_phone_number = document.getElementById("id_phone_number").value;
-  //if ((old_phone_number[0]!=undefined)&&(old_phone_number[0]!=null)) {
   if (old_phone_number!="") {
   new_phone_number = phone_number_checkerJS(old_phone_number);
   if (!new_phone_number[0]) {
     document.getElementById("form_errors_displayed").innerText = new_phone_number[1];
+    new_phone_number[1] = old_phone_number;
   }
   if (new_phone_number[0]) {
       document.getElementById("form_errors_displayed").innerText = "";
@@ -21,6 +20,7 @@ function tel_check(e) {
      new_phone_number = phone_number_checkerJS(old_phone_number);
   if (!new_phone_number[0]) {
     document.getElementById("form_errors_displayed").innerText = new_phone_number[1];
+    new_phone_number[1] = old_phone_number;
   }
   if (new_phone_number[0]) {
       document.getElementById("form_errors_displayed").innerText = "";

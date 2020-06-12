@@ -5,33 +5,12 @@
 {% endblock %}
 
 {% block content %}
-<h1>My Needs and Provisions</h1>
+<h1>My Need and Candidate Provisions</h1>
 
 <div class="TODO">
 
 </div>
 
-<h2>Need</h2>
-<div class="login-grid">
-  <div class="login-left-margin"></div>
-  <div class="login-middle">
-    <h3>{{need.name}}</h3>
-    <div class="provisions-grid-4columns">
-      <span class="provision-column1"><strong>Frequency</strong></span>
-      <span class="provision-column2"><strong>Status</strong></span>
-      <span class="provision-column3"><strong>Due Date</strong></span>
-      <span class="provision-column4"></span>
-
-      <span class="provision-column1">{{need.frequency}}</span>
-      <span class="provision-column2">{{need.status}}</span>
-      <span class="provision-column3">{{need.due_date}}</span>
-      <span class="provision-column4"><a href="{% url 'update_need_form' %}{{need.id}}"
-        class="button-submit" style="color:white">Edit Item</a></span>
-        <!-- spaces are important for url tab -->
-      </div>
-  </div>
-  <div class="login-right-margin"></div>
-</div>
 <br>
 
 <h2>Candidate Provisions</h2>
@@ -44,36 +23,56 @@
       <span class="provision-column2"><strong>Type</strong></span>
       <span class="provision-column3"><strong>Expiration Date</strong></span>
       <span class="provision-column4"></span>
-
       {% for provision in provisions %}
       <span class="provision-column1">{{provision.name}}</span>
       <span class="provision-column2">{{provision.type}}</span>
       <span class="provision-column3">{{provision.expriation_date}}</span>
       <span class="provision-column4">
         <a href="{% url 'provision_contact_info' %}{{provision.id}}/{{need.id}}"
-        class="button-submit" style="color:white">Contact Info for Provision: {{provision.id}}</a>
+        class="button-submit" style="color:white">Contact Info</a>
       </span>
       {% endfor %}
-        </div>
+    </div>
 
-        {% else %}
-        <p class="bold-centered error">No Provisions Yet</p>
-        {% endif %}
+    {% else %}
+    <p class="bold-centered error">No Provisions Yet</p>
+    {% endif %}
 
 
 
+  </div>
+  <div class="login-right-margin"></div>
+</div>
+
+<br>
+<h3>My Need</h3>
+<div class="login-grid">
+  <div class="login-left-margin"></div>
+  <div class="login-middle">
+    <h4>{{need.name}}</h4>
+    <div class="provisions-grid-4columns">
+      <span class="provision-column1"><strong>Frequency</strong></span>
+      <span class="provision-column2"><strong>Status</strong></span>
+      <span class="provision-column3"><strong>Due Date</strong></span>
+      <span class="provision-column4"></span>
+      <span class="provision-column1">{{need.frequency}}</span>
+      <span class="provision-column2">{{need.status}}</span>
+      <span class="provision-column3">{{need.due_date}}</span>
+      <span class="provision-column4"><a href="{% url 'update_need_form' %}{{need.id}}"
+        class="button-submit" style="color:white">Edit Item</a></span>
+        <!-- spaces are important for url tab -->
+      </div>
     </div>
     <div class="login-right-margin"></div>
   </div>
-    <br>
-  <div class="button-centered">
-    <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
-  </div>
-  <div class="bold-centered">
-  <form  method="post" action="{% url 'logout' %}">
+
+<div class="button-centered">
+  <a class="button-submit" style="color:white" href="{% url 'summary'%}">Cancel</a>
+</div>
+<div class="bold-centered">
+  <form  method="post" action="{% url 'logged_out' %}">
     {% csrf_token %}
     <input type="submit" class="button-submit" style="color:white"  value="Logout" />
   </form>
-  <!-- <div class="login-right-margin"></div> -->
 </div>
-{% endblock %}
+  {% endblock %}

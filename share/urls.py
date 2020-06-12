@@ -1,13 +1,6 @@
-# Add as needed
 from django.urls import path
 from django.conf.urls import url
 from . import views, forms
-# from share.views import ProvisionListView
-
-
-urlpatterns = [
-
-]
 
 urlpatterns = [
     path("", views.index, name="index"), # Both of these lines work
@@ -44,9 +37,5 @@ urlpatterns = [
     path("action_item/update/<int:pk>/", views.Action_itemUpdate.as_view(), name="update_action_item_form"),
     path("all_items/<str:item_type>/", views.all_items, name="all_items"),
     path("all_items/", views.all_items, name="all_items"),
+    path("logged_out/", views.logged_out, name="logged_out"),
     ]
-
-    # path("member_profile/update/", views.Member_profileUpdate.as_view(), name="update_member_profile_form"), # Needed 5/26/20 to get past NoReverseMatch Error
-    # path("member_profile/update/<int:pk>", views.Member_profileUpdate.as_view(), name="update_member_profile_form"),
-
-#print("33 urls.py",urlpatterns)

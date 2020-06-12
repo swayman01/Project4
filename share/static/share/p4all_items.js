@@ -1,22 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("p4all_items.js loaded");
-  //Test Code
-  //var value = (document.getElementById('header').textContent);
-  // var obj = JSON.parse('{ "name":"John", "age":30, "city":"New York"}');
-  // console.log(obj)
-  // var value = document.getElementById('header').textContent;
-  // console.log("from <p> in html", value,value[2])
-  // var value1 = document.getElementById('header1').textContent;
-  // console.log("from <script text javascript", value1,value1[2])
-  // var value2 = document.getElementById('header2').textContent;
-  // console.log("from <script application/json", value2,value2[2])
-  // var value3 = document.getElementById('header3').textContent;
-  // console.log("from <script text javascript with safe filter", value3,value3[3])
-  // valueJSON = JSON.parse(value3)
-  // valueJSON1 = JSON.parse(value1) SyntaxError: Unexpected token v in JSON at position 0
-  // valueJSON2 = JSON.parse(value2) SyntaxError: Unexpected token & in JSON at position 1
-  // valueJSON3 = JSON.parse(value3)
-  // End Test Code
+
   set_grid_columns()
   populate_grid()
 });
